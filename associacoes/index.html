@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Highlight | Comunicação para associações, clubes e entidades</title>
+  <meta name="description" content="Um departamento de comunicação completo pelo preço de um funcionário. Conteúdo, eventos, newsletter, site e campanhas para associações e clubes. De Brasília para todo o Brasil." />
+  <link rel="canonical" href="https://highlightco.com.br/associacoes" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Highlight | Comunicação para associações, clubes e entidades" />
+  <meta property="og:description" content="Um departamento de comunicação completo pelo preço de um funcionário. Conteúdo, eventos, newsletter, site e campanhas para associações e clubes. De Brasília para todo o Brasil." />
+  <meta property="og:url" content="https://highlightco.com.br/associacoes" />
+  <meta property="og:image" content="https://highlightco.com.br/assets/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+  <!-- Fonts: Clash Display & Satoshi (Weights 300, 400, 500 only — zero bold) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500&f[]=satoshi@300,400,500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Clash Display', 'sans-serif'],
+            sans: ['Satoshi', 'sans-serif'],
+          },
+          colors: {
+            bordo: {
+              DEFAULT: '#812A4F',
+              dark: '#581A35',
+              soft: '#A8426D',
+              glow: '#C25281',
+            },
+            creme: {
+              DEFAULT: '#F5F3EF',
+              muted: '#B8B4AC',
+              subtle: '#7E7B74',
+            },
+            verde: {
+              DEFAULT: '#1E3A35',
+            },
+            obsidian: {
+              DEFAULT: '#08080A',
+              surface: '#0F0F14',
+              card: '#14141B',
+            }
+          },
+          boxShadow: {
+            'bordo-sm': '0 0 25px -5px rgba(129, 42, 79, 0.4)',
+            'bordo-lg': '0 0 50px -10px rgba(129, 42, 79, 0.55)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5R7VLQ5S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GT-5R7VLQ5S');
+  </script>
+
+  <!-- Import Map for Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.138.3/build/three.module.js"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #08080A;
+      color: #F5F3EF;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #812A4F;
+      color: #F5F3EF;
+    }
+
+    /* Architectural Tech Grid Texture */
+    .bg-luxury-grid {
+      background-size: 44px 44px;
+      background-image:
+        linear-gradient(to right, rgba(245, 243, 239, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 243, 239, 0.028) 1px, transparent 1px);
+    }
+
+    /* Micro Dot Matrix Texture for Sections */
+    .bg-dot-matrix {
+      background-image: radial-gradient(rgba(168, 66, 109, 0.16) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Subtle Film Grain Texture */
+    .bg-noise {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    /* Glassmorphic Luxury Card */
+    .glass-card {
+      background: linear-gradient(145deg, rgba(23, 22, 30, 0.78) 0%, rgba(13, 13, 18, 0.88) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(245, 243, 239, 0.075);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(168, 66, 109, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px -15px rgba(0, 0, 0, 0.75), 0 0 25px -6px rgba(129, 42, 79, 0.28);
+    }
+
+    /* Interactive Pain Card Selected State */
+    .pain-card.selected {
+      border-color: rgba(168, 66, 109, 0.6);
+      background: linear-gradient(145deg, rgba(129, 42, 79, 0.22) 0%, rgba(18, 17, 24, 0.92) 100%);
+    }
+
+    /* Buttons */
+    .btn-bordo {
+      background: linear-gradient(135deg, #812A4F 0%, #9B3561 50%, #812A4F 100%);
+      background-size: 200% auto;
+      color: #F5F3EF;
+      border: 1px solid rgba(245, 243, 239, 0.16);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-bordo:hover {
+      background-position: right center;
+      border-color: rgba(245, 243, 239, 0.35);
+      transform: translateY(-1.5px);
+      box-shadow: 0 10px 30px -6px rgba(129, 42, 79, 0.6);
+    }
+
+    .btn-outline-bordo {
+      background: rgba(129, 42, 79, 0.14);
+      color: #F5F3EF;
+      border: 1px solid rgba(168, 66, 109, 0.45);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-outline-bordo:hover {
+      background: #812A4F;
+      border-color: rgba(245, 243, 239, 0.3);
+      transform: translateY(-1.5px);
+      box-shadow: 0 10px 25px -6px rgba(129, 42, 79, 0.5);
+    }
+
+    /* Scroll Reveal */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Timeline Styling */
+    .timeline-item {
+      opacity: 0.42;
+      transition: all 0.45s ease;
+    }
+
+    .timeline-item.active {
+      opacity: 1;
+    }
+
+    .timeline-node {
+      transition: all 0.45s ease;
+    }
+
+    .timeline-item.active .timeline-node {
+      transform: translate(-50%, -50%) scale(1.35);
+      background-color: #A8426D;
+      border-color: #F5F3EF;
+      box-shadow: 0 0 16px rgba(168, 66, 109, 0.8), 0 0 32px rgba(129, 42, 79, 0.5);
+    }
+
+    .timeline-item.active .timeline-card {
+      border-color: rgba(168, 66, 109, 0.5);
+      background: linear-gradient(145deg, rgba(129, 42, 79, 0.18) 0%, rgba(16, 16, 22, 0.92) 100%);
+    }
+
+    /* Typewriter Cursor */
+    .typewriter-cursor {
+      border-right: 1.5px solid #A8426D;
+      padding-right: 4px;
+      animation: typewriter-blink 1s steps(1) infinite;
+    }
+
+    @keyframes typewriter-blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #A8426D; }
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #08080A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262630;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #812A4F;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-creme font-sans font-light relative">
+
+  <!-- ==========================================
+       LAYERED BACKGROUND TEXTURES & AMBIENT LIGHTS
+       ========================================== -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Architectural Grid -->
+    <div class="absolute inset-0 bg-luxury-grid opacity-80"></div>
+    <!-- Subtle Film Grain -->
+    <div class="absolute inset-0 bg-noise"></div>
+    <!-- Ambient Bordô & Deep Forest Glow Spheres -->
+    <div class="absolute -top-44 left-1/2 -translate-x-1/2 w-[820px] h-[440px] bg-bordo/20 rounded-full blur-[135px]"></div>
+    <div class="absolute top-[28%] -right-52 w-[520px] h-[520px] bg-bordo/12 rounded-full blur-[150px]"></div>
+    <div class="absolute top-[55%] -left-52 w-[520px] h-[520px] bg-verde/20 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-0 left-1/3 w-[650px] h-[400px] bg-bordo/15 rounded-full blur-[145px]"></div>
+  </div>
+
+  <!-- ==========================================
+       BLOCO 1: MENU
+       ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/75 backdrop-blur-xl border-b border-creme/[0.06]">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-obsidian-card border border-creme/10 flex items-center justify-center group-hover:border-bordo-soft transition">
+          <span class="font-display font-normal text-sm tracking-tight text-creme">H<span class="text-bordo-soft">.</span></span>
+        </div>
+        <span class="font-display font-normal text-base tracking-wide text-creme">
+          HighlightCo<span class="text-bordo-soft">.</span>
+        </span>
+      </a>
+
+      <!-- Center Glass Pill Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-obsidian-surface/90 border border-creme/[0.08] rounded-full px-2.5 py-1 text-xs font-normal tracking-wide text-creme/75">
+        <a href="#diagnostico" class="px-3.5 py-1.5 rounded-full hover:text-creme hover:bg-creme/[0.05] transition">Diagnóstico</a>
+        <a href="#processo" class="px-3.5 py-1.5 rounded-full hover:text-creme hover:bg-creme/[0.05] transition">Como trabalhamos</a>
+        <a href="#inicio" class="px-3.5 py-1.5 rounded-full hover:text-creme hover:bg-creme/[0.05] transition">Início</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden md:block">
+        <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+           class="btn-bordo inline-flex items-center gap-2 px-5 py-2 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-creme animate-pulse"></span>
+          <span>Agendar sessão</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-toggle" aria-label="Alternar Menu" class="md:hidden p-2 rounded-lg bg-obsidian-card border border-creme/10 text-creme/80 hover:text-creme">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-nav" class="hidden md:hidden bg-obsidian-surface/95 backdrop-blur-2xl border-b border-creme/10 px-6 py-5 space-y-3 text-sm font-normal">
+      <a href="#diagnostico" class="mobile-nav-link block py-1.5 text-creme/80 hover:text-creme">Diagnóstico</a>
+      <a href="#processo" class="mobile-nav-link block py-1.5 text-creme/80 hover:text-creme">Como trabalhamos</a>
+      <a href="#inicio" class="mobile-nav-link block py-1.5 text-creme/80 hover:text-creme">Início</a>
+      <div class="pt-2">
+        <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+           class="btn-bordo block text-center py-2.5 rounded-full font-display font-normal text-xs tracking-wider">
+          Agendar sessão
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ==========================================
+         BLOCO 2: HERO (VÍDEO OCULTO NESTA PÁGINA)
+         ========================================== -->
+    <section id="inicio" class="relative pt-28 pb-20 md:pt-36 md:pb-24 overflow-hidden">
+      <!-- Interactive Background Particle Constellation -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-60"></canvas>
+
+      <div class="max-w-5xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Copy -->
+          <div class="lg:col-span-8 space-y-5">
+            <h1 class="font-display font-normal text-3xl sm:text-4xl lg:text-[42px] leading-[1.16] tracking-tight text-creme">
+              Comunicação que faz sua associação crescer
+            </h1>
+
+            <h2 class="font-display font-light text-lg sm:text-xl text-creme/85 leading-relaxed max-w-2xl">
+              Sua associação com um departamento de comunicação completo, pelo preço de um funcionário, focado em trazer e manter associados.
+            </h2>
+
+            <p class="text-sm sm:text-[15px] text-creme/70 max-w-xl font-light leading-relaxed pt-1">
+              Agende uma Sessão Estratégica gratuita de 30 minutos e saia com uma leitura da comunicação da sua organização e os primeiros passos para atrair novos associados.
+            </p>
+
+            <div class="pt-3 space-y-3">
+              <div>
+                <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+                   class="btn-bordo inline-flex items-center gap-3 px-6 py-3.5 rounded-full font-display font-normal text-xs sm:text-[13px] tracking-wider shadow-bordo-lg group">
+                  <span>AGENDAR MINHA SESSÃO ESTRATÉGICA</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+              <p class="text-xs text-creme/50 font-light">
+                <a href="#tour-guiada" class="hover:text-creme/85 transition underline underline-offset-4 decoration-creme/20">
+                  (clique e veja o que você recebe na sessão)
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Vídeo oculto nesta página conforme especificação da Parte B -->
+          <div class="hidden lg:col-span-5"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 3: APRESENTAÇÃO
+         ========================================== -->
+    <section class="py-16 md:py-24 border-t border-creme/[0.06] relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+          
+          <div class="lg:col-span-6 space-y-5">
+            <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
+              Comunicação feita para fazer o quadro de associados crescer
+            </h3>
+
+            <div class="space-y-3 text-sm sm:text-[15px] text-creme/70 font-light leading-relaxed">
+              <p>A Highlight é o time de comunicação de associações, clubes e entidades que precisam ser vistos, lembrados e escolhidos pelos seus associados.</p>
+              <p>Assumimos a comunicação da sua organização de ponta a ponta, com método e relatório mensal para a diretoria. Na rotina, entram:</p>
+            </div>
+
+            <!-- 2x2 Glass Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center shrink-0 text-bordo-soft">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"/></svg>
+                </div>
+                <span class="text-xs sm:text-sm text-creme/90 font-normal leading-snug">Pautas mensais e calendário de comunicação</span>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center shrink-0 text-bordo-soft">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"/></svg>
+                </div>
+                <span class="text-xs sm:text-sm text-creme/90 font-normal leading-snug">Pré e pós-evento: divulgação, registro, depoimentos e resumos</span>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center shrink-0 text-bordo-soft">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"/></svg>
+                </div>
+                <span class="text-xs sm:text-sm text-creme/90 font-normal leading-snug">Newsletter no WhatsApp e site sempre atualizado</span>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center shrink-0 text-bordo-soft">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"/></svg>
+                </div>
+                <span class="text-xs sm:text-sm text-creme/90 font-normal leading-snug">Divulgação de benefícios e convênios que os associados nem sabem que têm</span>
+              </div>
+            </div>
+
+            <div class="pt-3">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-outline-bordo inline-flex items-center px-6 py-2.5 rounded-full font-display font-normal text-xs tracking-wider">
+                QUERO ENTENDER COMO FUNCIONA
+              </a>
+            </div>
+          </div>
+
+          <!-- Framed 3D Particle Pie Chart -->
+          <div class="lg:col-span-6">
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
+              <div id="pie-chart-container" class="w-full h-[350px] md:h-[380px] relative overflow-hidden"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 4: PARA QUEM É
+         ========================================== -->
+    <section class="py-16 md:py-24 border-t border-creme/[0.06] relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+          
+          <!-- Framed 3D Particle Lightning -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
+              <div id="lightning-pro-container" class="w-full h-[350px] md:h-[380px] relative overflow-hidden"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-5 order-1 lg:order-2">
+            <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
+              Para quem é a Highlight
+            </h3>
+
+            <p class="text-sm sm:text-[15px] text-creme/70 font-light leading-relaxed">
+              Atendemos organizações que precisam estruturar ou profissionalizar a comunicação:
+            </p>
+
+            <!-- 4 Glass Cards with Subtle Numbering -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <div class="glass-card p-4 rounded-xl space-y-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">01</span>
+                <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
+                  Associações de servidores e de profissionais
+                </p>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl space-y-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">02</span>
+                <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
+                  Clubes de engenharia, clubes sociais e entidades de classe
+                </p>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl space-y-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">03</span>
+                <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
+                  Organizações com eventos, benefícios e convênios que pouca gente conhece
+                </p>
+              </div>
+
+              <div class="glass-card p-4 rounded-xl space-y-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">04</span>
+                <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
+                  Entidades de Brasília e de todo o Brasil, com atendimento 100% remoto
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-3">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-outline-bordo inline-flex items-center px-6 py-2.5 rounded-full font-display font-normal text-xs tracking-wider">
+                AGENDAR UMA SESSÃO
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 5: DIAGNÓSTICO
+         ========================================== -->
+    <section id="diagnostico" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+          
+          <div class="lg:col-span-6 space-y-5">
+            <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
+              Sua organização vive alguma destas situações?
+            </h3>
+
+            <!-- Interactive Selectable Cards -->
+            <div class="space-y-2.5 pt-1">
+              <button type="button" class="pain-card selected w-full text-left glass-card px-4 py-3.5 rounded-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center text-bordo-soft shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 320 512"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"/></svg>
+                  </span>
+                  <span class="text-xs sm:text-sm text-creme/90 font-light">Os eventos acontecem, mas pouca gente fica sabendo</span>
+                </div>
+                <span class="pain-check w-4 h-4 rounded-full bg-bordo border border-bordo-soft flex items-center justify-center text-[9px] text-creme shrink-0">✓</span>
+              </button>
+
+              <button type="button" class="pain-card w-full text-left glass-card px-4 py-3.5 rounded-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center text-bordo-soft shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                  </span>
+                  <span class="text-xs sm:text-sm text-creme/90 font-light">O Instagram e o site estão parados ou desatualizados</span>
+                </div>
+                <span class="pain-check w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[9px] text-transparent shrink-0">✓</span>
+              </button>
+
+              <button type="button" class="pain-card selected w-full text-left glass-card px-4 py-3.5 rounded-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center text-bordo-soft shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
+                  </span>
+                  <span class="text-xs sm:text-sm text-creme/90 font-light">Os associados não conhecem os benefícios e convênios que pagam</span>
+                </div>
+                <span class="pain-check w-4 h-4 rounded-full bg-bordo border border-bordo-soft flex items-center justify-center text-[9px] text-creme shrink-0">✓</span>
+              </button>
+
+              <button type="button" class="pain-card w-full text-left glass-card px-4 py-3.5 rounded-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center text-bordo-soft shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                  </span>
+                  <span class="text-xs sm:text-sm text-creme/90 font-light">O quadro de associados não cresce (ou está diminuindo)</span>
+                </div>
+                <span class="pain-check w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[9px] text-transparent shrink-0">✓</span>
+              </button>
+
+              <button type="button" class="pain-card w-full text-left glass-card px-4 py-3.5 rounded-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-bordo/25 border border-bordo-soft/35 flex items-center justify-center text-bordo-soft shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                  </span>
+                  <span class="text-xs sm:text-sm text-creme/90 font-light">A comunicação depende de uma pessoa só, sem rotina nem planejamento</span>
+                </div>
+                <span class="pain-check w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[9px] text-transparent shrink-0">✓</span>
+              </button>
+            </div>
+
+            <div class="pt-3">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-bordo inline-flex items-center px-6 py-2.5 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-sm">
+                Se identificou? Fale com a Highlight
+              </a>
+            </div>
+          </div>
+
+          <!-- Framed 3D Particle Vortex -->
+          <div class="lg:col-span-6">
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
+              <div id="diagnostic-3d-container" class="w-full h-[360px] md:h-[400px] flex justify-center items-center overflow-hidden relative cursor-move"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 6: PROCESSO (COMO TRABALHAMOS)
+         ========================================== -->
+    <section id="processo" class="py-16 md:py-24 border-t border-creme/[0.06] relative">
+      <div class="max-w-4xl mx-auto px-6">
+        
+        <div class="text-center mb-14 reveal-on-scroll">
+          <h3 class="font-display font-normal text-2xl sm:text-3xl text-creme">
+            Como trabalhamos
+          </h3>
+          <p class="mt-3 max-w-2xl mx-auto text-sm sm:text-[15px] text-creme/65 font-light leading-relaxed">
+            Tudo começa com um Diagnóstico de Comunicação de 30 dias. Depois, a comunicação entra em rotina, com acompanhamento e metas de associados.
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Glowing Gradient Line -->
+          <div class="absolute top-0 w-px h-full bg-gradient-to-b from-bordo via-bordo-soft/50 to-creme/10 left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
+
+          <div id="timeline-container" class="space-y-8 md:space-y-10">
+
+            <!-- 01 -->
+            <div class="timeline-item active reveal-on-scroll relative">
+              <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+                <div class="pl-10 md:pl-0 md:text-right">
+                  <div class="timeline-card glass-card p-5 rounded-2xl">
+                    <h4 class="font-display font-normal text-lg sm:text-xl mb-1.5 text-bordo-soft">01. Diagnosticar</h4>
+                    <p class="text-xs sm:text-sm text-creme/70 font-light leading-relaxed">
+                      Entrevistamos a presidência e a diretoria, conversamos com associados (por que ficam, por que saem, o que não conhecem) e mapeamos benefícios, serviços e canais.
+                    </p>
+                  </div>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+              <div class="timeline-node absolute w-3 h-3 rounded-full bg-creme/25 border border-creme/40 z-10 top-6 left-4 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-y-1/2"></div>
+            </div>
+
+            <!-- 02 -->
+            <div class="timeline-item reveal-on-scroll relative">
+              <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+                <div class="hidden md:block"></div>
+                <div class="pl-10 md:pl-0">
+                  <div class="timeline-card glass-card p-5 rounded-2xl">
+                    <h4 class="font-display font-normal text-lg sm:text-xl mb-1.5 text-bordo-soft">02. Planejar</h4>
+                    <p class="text-xs sm:text-sm text-creme/70 font-light leading-relaxed">
+                      Definimos a proposta de valor da associação, as mensagens para cada perfil de sócio e um plano de comunicação de 6 meses, com calendário e metas de associados.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-node absolute w-3 h-3 rounded-full bg-creme/25 border border-creme/40 z-10 top-6 left-4 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-y-1/2"></div>
+            </div>
+
+            <!-- 03 -->
+            <div class="timeline-item reveal-on-scroll relative">
+              <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+                <div class="pl-10 md:pl-0 md:text-right">
+                  <div class="timeline-card glass-card p-5 rounded-2xl">
+                    <h4 class="font-display font-normal text-lg sm:text-xl mb-1.5 text-bordo-soft">03. Executar</h4>
+                    <p class="text-xs sm:text-sm text-creme/70 font-light leading-relaxed">
+                      A rotina começa: pautas, eventos do convite ao pós-evento, newsletter, site e benefícios, sempre com a aprovação da diretoria.
+                    </p>
+                  </div>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+              <div class="timeline-node absolute w-3 h-3 rounded-full bg-creme/25 border border-creme/40 z-10 top-6 left-4 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-y-1/2"></div>
+            </div>
+
+            <!-- 04 -->
+            <div class="timeline-item reveal-on-scroll relative">
+              <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+                <div class="hidden md:block"></div>
+                <div class="pl-10 md:pl-0">
+                  <div class="timeline-card glass-card p-5 rounded-2xl">
+                    <h4 class="font-display font-normal text-lg sm:text-xl mb-1.5 text-bordo-soft">04. Atrair novos associados</h4>
+                    <p class="text-xs sm:text-sm text-creme/70 font-light leading-relaxed">
+                      Página de adesão, roteiro de atendimento da secretaria, campanhas e testes de canais, digitais e físicos, para trazer gente nova.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-node absolute w-3 h-3 rounded-full bg-creme/25 border border-creme/40 z-10 top-6 left-4 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-y-1/2"></div>
+            </div>
+
+            <!-- 05 -->
+            <div class="timeline-item reveal-on-scroll relative">
+              <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+                <div class="pl-10 md:pl-0 md:text-right">
+                  <div class="timeline-card glass-card p-5 rounded-2xl">
+                    <h4 class="font-display font-normal text-lg sm:text-xl mb-1.5 text-bordo-soft">05. Medir e reportar</h4>
+                    <p class="text-xs sm:text-sm text-creme/70 font-light leading-relaxed">
+                      Todo mês, um relatório de indicadores para a diretoria e os conselhos: novos sócios, retenção, alcance e presença em eventos.
+                    </p>
+                  </div>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+              <div class="timeline-node absolute w-3 h-3 rounded-full bg-creme/25 border border-creme/40 z-10 top-6 left-4 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-y-1/2"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-12">
+          <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+             class="btn-bordo inline-flex items-center px-7 py-3 rounded-full font-display font-normal text-xs tracking-wider text-center shadow-bordo-sm">
+            Conversar com a Highlight
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 7: TIME TERCEIRIZADO (SEM × COM)
+         ========================================== -->
+    <section class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3.5 reveal-on-scroll">
+          <p class="font-display italic font-light text-base sm:text-lg text-bordo-soft">
+            Um departamento de comunicação, sem precisar montar um
+          </p>
+          <h2 class="font-display font-normal text-2xl sm:text-3xl text-creme leading-snug">
+            Um time de comunicação completo pelo preço de um único funcionário
+          </h2>
+          <p class="text-sm sm:text-[15px] text-creme/70 font-light leading-relaxed pt-1">
+            Você não precisa contratar, treinar e gerenciar uma equipe para ter uma comunicação profissional. Com a <span class="font-normal text-creme">Highlight</span>, sua organização tem estratégia, conteúdo, design e gestão por um valor mensal fixo. Sem folha, sem rotatividade, sem dor de cabeça com gestão. E, se fizer sentido para o caixa da associação, existe um modelo de risco compartilhado: fixo reduzido e um bônus que só existe quando entram novos associados.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal-on-scroll">
+          
+          <!-- Sem Highlight -->
+          <div class="glass-card rounded-2xl p-7 sm:p-8 border border-creme/[0.07]">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-creme/[0.07]">
+              <h3 class="font-display font-normal text-xl text-creme/75">
+                Sem Highlight
+              </h3>
+              <span class="w-8 h-8 rounded-lg bg-creme/[0.04] border border-creme/10 flex items-center justify-center text-creme/45 text-xs">!</span>
+            </div>
+            <ul class="space-y-3.5 text-sm sm:text-[15px] text-creme/65 font-light">
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[10px] text-creme/50 shrink-0">✕</span>
+                <span>Custos com CLT, encargos e freelancers</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[10px] text-creme/50 shrink-0">✕</span>
+                <span>Seleção demorada e alta rotatividade</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[10px] text-creme/50 shrink-0">✕</span>
+                <span>Comunicação sem plano, feita "quando dá"</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full border border-creme/20 flex items-center justify-center text-[10px] text-creme/50 shrink-0">✕</span>
+                <span>Diretoria gastando tempo com cobrança e retrabalho</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Com Highlight -->
+          <div class="glass-card rounded-2xl p-7 sm:p-8 border border-bordo-soft/55 bg-gradient-to-b from-bordo/[0.18] to-obsidian-card/90 shadow-bordo-sm relative overflow-hidden">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-bordo/35">
+              <h3 class="font-display font-normal text-xl text-creme">
+                Com Highlight
+              </h3>
+              <span class="w-8 h-8 rounded-lg bg-bordo/35 border border-bordo-soft/50 flex items-center justify-center text-creme text-xs">✓</span>
+            </div>
+            <ul class="space-y-3.5 text-sm sm:text-[15px] text-creme/90 font-light">
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full bg-bordo/50 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+                <span>Valor mensal fixo, sem surpresas</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full bg-bordo/50 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+                <span>Time pronto, operando desde o primeiro mês</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full bg-bordo/50 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+                <span>Plano, calendário e metas definidos com a diretoria</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-4 h-4 rounded-full bg-bordo/50 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+                <span>Tudo gerenciado por nós, com relatório mensal para diretoria e conselhos</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="flex justify-center mt-10">
+          <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+             class="btn-bordo inline-flex items-center px-7 py-3 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-sm">
+            Fale com a Highlight
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 8: TYPEWRITER (ANIMADO)
+         ========================================== -->
+    <section class="py-16 md:py-20 border-t border-creme/[0.06] relative">
+      <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
+        <div class="glass-card rounded-2xl py-12 px-6 text-center relative overflow-hidden bg-dot-matrix">
+          <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-bordo/25 blur-3xl pointer-events-none"></div>
+
+          <h3 class="font-display font-normal text-lg sm:text-xl text-bordo-soft mb-2 relative z-10">
+            Rotina + Eventos + Benefícios =
+          </h3>
+          <p class="font-display font-normal text-xl sm:text-2xl text-creme h-9 flex items-center justify-center relative z-10">
+            <span id="tw-more" class="typewriter-cursor"></span>
+          </p>
+
+          <h3 class="font-display font-normal text-lg sm:text-xl text-bordo-soft mt-8 mb-2 relative z-10">
+            e, com o tempo...
+          </h3>
+          <p class="font-display font-light text-xl sm:text-2xl text-creme/70 h-9 flex items-center justify-center relative z-10">
+            <span id="tw-less" class="typewriter-cursor"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 9: RESULTADOS (OCULTO CONFORME ESPECIFICAÇÃO)
+         ========================================== -->
+    <!--
+    <section id="resultados" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        
+        <div class="text-center mb-12 reveal-on-scroll space-y-2">
+          <h2 class="font-display italic font-normal text-2xl sm:text-3xl text-creme">
+            Resultados com quem já trabalha com a Highlight
+          </h2>
+          <p class="text-sm sm:text-[15px] text-creme/70 font-light">
+            Case [nome do cliente, após autorização]
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-on-scroll">
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [nº] anos cuidando da comunicação do clube
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [nº] eventos com cobertura completa, do convite ao pós-evento
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [nº] newsletters enviadas aos associados
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [nº] conteúdos publicados
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [%] de crescimento no Instagram
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
+              [nº ou %] de novos associados no período
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    -->
+
+    <!-- ==========================================
+         BLOCO 10: CHAMADA PARA A SESSÃO ESTRATÉGICA
+         ========================================== -->
+    <section id="tour-guiada" class="py-16 md:py-24 border-t border-creme/[0.06] relative">
+      <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
+        <div class="glass-card rounded-2xl p-8 sm:p-12 border border-bordo-soft/40 bg-gradient-to-br from-bordo/[0.18] via-obsidian-card to-obsidian-surface relative overflow-hidden shadow-bordo-sm">
+          <div class="absolute -right-24 -bottom-24 w-80 h-80 bg-bordo/25 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-2xl mx-auto text-center space-y-4">
+            <h3 class="font-display font-normal text-xl sm:text-2xl leading-snug text-creme">
+              Agende sua Sessão Estratégica gratuita
+            </h3>
+            <p class="text-sm sm:text-[15px] text-creme/70 font-light">
+              Em 30 minutos, olhamos juntos para a comunicação da sua organização e mostramos onde estão as oportunidades mais rápidas.
+            </p>
+          </div>
+
+          <ul class="relative z-10 max-w-xl mx-auto space-y-3 mt-8 text-sm sm:text-[15px] text-creme/85 font-light">
+            <li class="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+              <span class="w-4 h-4 rounded-full bg-bordo/40 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+              <span>Um diagnóstico rápido dos seus canais (site, Instagram, WhatsApp e eventos)</span>
+            </li>
+            <li class="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+              <span class="w-4 h-4 rounded-full bg-bordo/40 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+              <span>3 oportunidades para aplicar já no próximo mês</span>
+            </li>
+            <li class="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+              <span class="w-4 h-4 rounded-full bg-bordo/40 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+              <span>A conta de quantos novos associados pagam o investimento</span>
+            </li>
+            <li class="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+              <span class="w-4 h-4 rounded-full bg-bordo/40 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+              <span>A explicação de como funciona o trabalho, passo a passo</span>
+            </li>
+            <li class="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+              <span class="w-4 h-4 rounded-full bg-bordo/40 border border-bordo-soft flex items-center justify-center text-[10px] text-creme shrink-0">✓</span>
+              <span>Espaço para tirar todas as suas dúvidas</span>
+            </li>
+          </ul>
+
+          <div class="relative z-10 flex justify-center mt-9">
+            <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+               class="btn-bordo inline-flex items-center px-8 py-3 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-lg">
+              AGENDAR SESSÃO AGORA
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 11: SOBRE O FUNDADOR
+         ========================================== -->
+    <section id="founder" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+          
+          <div class="lg:col-span-7 space-y-5">
+            <p class="text-xs uppercase tracking-[0.18em] text-bordo-soft font-normal">
+              Quem faz a Highlight acontecer
+            </p>
+
+            <h3 class="font-display font-normal text-2xl sm:text-3xl text-creme">
+              Luan Feitosa, fundador e CEO da Highlight
+            </h3>
+
+            <div class="space-y-4 text-sm sm:text-[15px] text-creme/75 font-light leading-relaxed">
+              <p>
+                Desde 2018 trabalho com comunicação, negócios e tecnologia, ajudando organizações a construir sistemas que geram crescimento de verdade.
+              </p>
+              <p>
+                Criei a Highlight para ser o time de comunicação que eu gostaria de contratar: com rotina, método e números na mesa. Há quase dois anos cuidamos da comunicação de um clube de profissionais de Brasília, e hoje ajudamos associações e entidades a serem vistas, lembradas e escolhidas pelos seus associados.
+              </p>
+              <p>
+                Vai ser um prazer conhecer a sua organização. <span class="text-creme font-normal">Te vejo na Sessão Estratégica!</span>
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-bordo inline-flex items-center px-7 py-3 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-sm">
+                AGENDAR SESSÃO AGORA
+              </a>
+            </div>
+          </div>
+
+          <!-- Bloco 12: Imagem final -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="relative max-w-[300px] w-full">
+              <div class="absolute -inset-3 bg-gradient-to-tr from-bordo/35 to-verde/25 rounded-3xl blur-xl opacity-60 pointer-events-none"></div>
+              <div class="relative glass-card p-2.5 rounded-2xl border border-creme/15">
+                <img src="/assets/luan-feitosa.jpg" alt="Equipe Highlight, comunicação para associações e clubes"
+                     class="w-full h-auto rounded-xl object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       BLOCO 12: RODAPÉ
+       ========================================== -->
+  <footer class="relative z-10 border-t border-creme/[0.06] py-10 text-xs text-creme/50 font-light">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="#inicio" class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-obsidian-card border border-creme/10 flex items-center justify-center">
+          <span class="font-display font-normal text-xs text-creme">H<span class="text-bordo-soft">.</span></span>
+        </div>
+        <span class="font-display font-normal text-sm text-creme">HighlightCo<span class="text-bordo-soft">.</span></span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="#diagnostico" class="hover:text-creme transition">Diagnóstico</a>
+        <a href="#processo" class="hover:text-creme transition">Como trabalhamos</a>
+        <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer" class="hover:text-creme transition">Agendar sessão</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <p>© <span id="year">2026</span> HighlightCo.</p>
+        <a href="/" class="text-[11px] text-creme/35 hover:text-creme/65 transition">Highlight para startups e SaaS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS: UI, TIMELINE, TYPEWRITER & 3D
+       ========================================== -->
+  <script>
+    // Mobile Menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => mobileNav.classList.add('hidden'));
+      });
+    }
+
+    // Interactive Pain Cards Toggle
+    document.querySelectorAll('.pain-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('selected');
+        const check = card.querySelector('.pain-check');
+        if (card.classList.contains('selected')) {
+          check.classList.add('bg-bordo', 'border-bordo-soft', 'text-creme');
+          check.classList.remove('border-creme/20', 'text-transparent');
+        } else {
+          check.classList.remove('bg-bordo', 'border-bordo-soft', 'text-creme');
+          check.classList.add('border-creme/20', 'text-transparent');
+        }
+      });
+    });
+
+    // Reveal on Scroll & Timeline Highlighter
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.querySelectorAll('.timeline-item.active').forEach(item => item.classList.remove('active'));
+            entry.target.classList.add('active');
+          }
+        });
+      }, { rootMargin: "-42% 0px -42% 0px" });
+
+      document.querySelectorAll('.timeline-item').forEach(item => timelineObserver.observe(item));
+    });
+
+    // Typewriter Effect (Bloco 8 - Parte B)
+    const initTypewriter = (selector, phrases, prefix = '') => {
+      const el = document.querySelector(selector);
+      if (!el || !phrases.length) return;
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const currentPhrase = phrases[phraseIndex % phrases.length];
+        const textToShow = isDeleting
+          ? currentPhrase.substring(0, charIndex--)
+          : currentPhrase.substring(0, charIndex++);
+
+        el.textContent = `${prefix}${textToShow}`;
+
+        let typeSpeed = isDeleting ? 55 : 115;
+
+        if (!isDeleting && textToShow === currentPhrase) {
+          typeSpeed = 2200;
+          isDeleting = true;
+        } else if (isDeleting && textToShow === '') {
+          isDeleting = false;
+          phraseIndex++;
+          typeSpeed = 450;
+        }
+
+        setTimeout(type, typeSpeed);
+      }
+      type();
+    };
+
+    initTypewriter('#tw-more', [
+      "Associação mais lembrada",
+      "Eventos mais cheios e participativos",
+      "Benefícios e convênios valorizados",
+      "Comunicação ativa toda semana",
+      "Associados mais próximos da entidade"
+    ]);
+
+    initTypewriter('#tw-less', [
+      "Mais gente querendo fazer parte",
+      "Maior retenção no quadro social",
+      "Mais orgulho de ser associado",
+      "Menos sobrecarga para a diretoria"
+    ]);
+
+    // Hero Background Constellation Canvas
+    (function initHeroCanvas() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+
+      function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = Array.from({ length: 48 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.6 + 0.8,
+        isBordo: Math.random() > 0.5
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.isBordo ? 'rgba(168, 66, 109, 0.7)' : 'rgba(245, 243, 239, 0.32)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 125) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(129, 42, 79, ${(1 - dist / 125) * 0.22})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+
+  <!-- Three.js Visualizations (Pie Chart, Lightning, Vortex) -->
+  <script type="module">
+    import * as THREE from 'three';
+
+    const colorVinho = new THREE.Color(0x812A4F);
+    const colorCreme = new THREE.Color(0xF5F3EF);
+
+    // 1. Pie Chart 3D
+    const pieContainer = document.getElementById('pie-chart-container');
+    if (pieContainer) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(70, pieContainer.clientWidth / pieContainer.clientHeight, 0.1, 1000);
+      camera.position.z = 205;
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(pieContainer.clientWidth, pieContainer.clientHeight);
+      pieContainer.appendChild(renderer.domElement);
+
+      const chartGroup = new THREE.Group();
+      scene.add(chartGroup);
+
+      const data = [0.4, 0.25, 0.2, 0.15];
+      const radius = 78;
+      let startAngle = 0;
+
+      data.forEach((value, i) => {
+        const endAngle = startAngle + (value * Math.PI * 2);
+        const sectorColor = colorVinho.clone().lerp(colorCreme, i / (data.length - 1));
+        const particleCount = Math.floor(6500 * value);
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        for (let j = 0; j < particleCount; j++) {
+          const angle = startAngle + Math.random() * (endAngle - startAngle);
+          const r = Math.sqrt(Math.random()) * radius;
+          const z = (Math.random() - 0.5) * 14;
+          const jitter = (Math.random() - 0.5) * 2;
+
+          positions[j * 3] = (r + jitter) * Math.cos(angle);
+          positions[j * 3 + 1] = (r + jitter) * Math.sin(angle);
+          positions[j * 3 + 2] = z;
+
+          const pColor = sectorColor.clone().lerp(colorCreme, Math.random() * 0.28);
+          colors[j * 3] = pColor.r;
+          colors[j * 3 + 1] = pColor.g;
+          colors[j * 3 + 2] = pColor.b;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+          size: 1.15,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.82,
+          blending: THREE.AdditiveBlending
+        });
+
+        const sectorPoints = new THREE.Points(geometry, material);
+        const midAngle = (startAngle + endAngle) / 2;
+        sectorPoints.position.x = Math.cos(midAngle) * 5;
+        sectorPoints.position.y = Math.sin(midAngle) * 5;
+
+        chartGroup.add(sectorPoints);
+        startAngle = endAngle;
+      });
+
+      function animatePie() {
+        requestAnimationFrame(animatePie);
+        chartGroup.rotation.z += 0.002;
+        chartGroup.rotation.x = Math.sin(Date.now() * 0.0005) * 0.2;
+        chartGroup.rotation.y = Math.cos(Date.now() * 0.0005) * 0.2;
+        renderer.render(scene, camera);
+      }
+      animatePie();
+
+      window.addEventListener('resize', () => {
+        if (!pieContainer.clientWidth) return;
+        camera.aspect = pieContainer.clientWidth / pieContainer.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(pieContainer.clientWidth, pieContainer.clientHeight);
+      });
+    }
+
+    // 2. Lightning 3D
+    const lightningContainer = document.getElementById('lightning-pro-container');
+    if (lightningContainer) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(70, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
+      camera.position.z = 185;
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(lightningContainer.clientWidth, lightningContainer.clientHeight);
+      lightningContainer.appendChild(renderer.domElement);
+
+      const lightningGroup = new THREE.Group();
+      scene.add(lightningGroup);
+
+      const mainPoints = [
+        new THREE.Vector3(0, 95, 0),
+        new THREE.Vector3(-28, 55, 0),
+        new THREE.Vector3(18, 18, 0),
+        new THREE.Vector3(-36, -18, 0),
+        new THREE.Vector3(10, -55, 0),
+        new THREE.Vector3(-10, -95, 0)
+      ];
+
+      const curve = new THREE.CatmullRomCurve3(mainPoints, false, 'catmullrom', 0.1);
+      const curvePoints = curve.getPoints(180);
+      const positions = [];
+      const colors = [];
+
+      curvePoints.forEach((p, index) => {
+        const progress = index / curvePoints.length;
+        const baseColor = colorCreme.clone().lerp(colorVinho, progress);
+
+        for (let i = 0; i < 42; i++) {
+          positions.push(
+            p.x + (Math.random() - 0.5) * 3,
+            p.y + (Math.random() - 0.5) * 3,
+            p.z + (Math.random() - 0.5) * 3
+          );
+          colors.push(colorCreme.r, colorCreme.g, colorCreme.b);
+        }
+
+        for (let i = 0; i < 100; i++) {
+          const spread = 14 + Math.random() * 10;
+          positions.push(
+            p.x + (Math.random() - 0.5) * spread,
+            p.y + (Math.random() - 0.5) * spread,
+            p.z + (Math.random() - 0.5) * spread
+          );
+          colors.push(baseColor.r, baseColor.g, baseColor.b);
+        }
+      });
+
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.05,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.75,
+        blending: THREE.AdditiveBlending
+      });
+
+      lightningGroup.add(new THREE.Points(geometry, material));
+
+      function animateLightning() {
+        requestAnimationFrame(animateLightning);
+        lightningGroup.rotation.y = Math.sin(Date.now() * 0.0006) * 0.16;
+        renderer.render(scene, camera);
+      }
+      animateLightning();
+
+      window.addEventListener('resize', () => {
+        if (!lightningContainer.clientWidth) return;
+        camera.aspect = lightningContainer.clientWidth / lightningContainer.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(lightningContainer.clientWidth, lightningContainer.clientHeight);
+      });
+    }
+
+    // 3. Vortex 3D
+    const vortexContainer = document.getElementById('diagnostic-3d-container');
+    if (vortexContainer) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(70, vortexContainer.clientWidth / vortexContainer.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 285);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(vortexContainer.clientWidth, vortexContainer.clientHeight);
+      vortexContainer.appendChild(renderer.domElement);
+
+      const particleCount = 8000;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      for (let i = 0; i < particleCount; i++) {
+        const radius = 45 + Math.random() * 95;
+        const angle = (i / particleCount) * Math.PI * 10 + (Math.random() - 0.5) * 0.5;
+
+        positions[i * 3] = radius * Math.cos(angle);
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 185;
+        positions[i * 3 + 2] = radius * Math.sin(angle);
+
+        const mixedColor = colorVinho.clone().lerp(colorCreme, Math.random());
+        colors[i * 3] = mixedColor.r;
+        colors[i * 3 + 1] = mixedColor.g;
+        colors[i * 3 + 2] = mixedColor.b;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 0.85,
+        vertexColors: true,
+        sizeAttenuation: true
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let targetRotationX = 0.15;
+      let targetRotationY = 0;
+
+      vortexContainer.addEventListener('mousemove', (event) => {
+        const rect = vortexContainer.getBoundingClientRect();
+        const relativeX = (event.clientX - rect.left) / rect.width;
+        const relativeY = (event.clientY - rect.top) / rect.height;
+        targetRotationY = (relativeX - 0.5) * Math.PI * 0.85;
+        targetRotationX = (relativeY - 0.5) * Math.PI * 0.85;
+      });
+
+      function animateVortex() {
+        requestAnimationFrame(animateVortex);
+        particleSystem.rotation.y += 0.002 + (targetRotationY - particleSystem.rotation.y) * 0.04;
+        particleSystem.rotation.x += (targetRotationX - particleSystem.rotation.x) * 0.04;
+        renderer.render(scene, camera);
+      }
+      animateVortex();
+
+      window.addEventListener('resize', () => {
+        if (!vortexContainer.clientWidth) return;
+        camera.aspect = vortexContainer.clientWidth / vortexContainer.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(vortexContainer.clientWidth, vortexContainer.clientHeight);
+      });
+    }
+  </script>
+</body>
+</html>
