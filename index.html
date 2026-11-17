@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HighLight Co. — Agência de Branding, Growth & Otimização de Funil</title>
+  <meta name="description" content="Agência de branding e growth especializada em marketing para negócios, com foco em estratégia, posicionamento, experimentos orientados a dados e aumento de ROI em 90 dias." />
+  <link rel="canonical" href="https://highlightco.com.br/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HighLight é a Agência de Branding e Growth que o Seu Negócio Precisa" />
+  <meta property="og:description" content="Veja o ROI do seu funil de marketing aumentar em 90 dias com o serviço de otimização e experimentos orientados a dados da HIGHLIGHT." />
+  <meta property="og:url" content="https://highlightco.com.br/" />
+  <meta property="og:image" content="https://highlightco.com.br/assets/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Fonts: Clash Display & Satoshi (Fontshare) + JetBrains Mono (Google Fonts) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Clash Display', 'sans-serif'],
+            sans: ['Satoshi', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            hl: {
+              bg: '#070709',
+              surface: '#0E0E13',
+              card: '#13131A',
+              border: '#22222E',
+              bordo: '#812A4F',
+              bordoLight: '#B83D72',
+              bordoGlow: '#E0538E',
+              creme: '#F5F3EF',
+              muted: '#9CA3AF',
+              verde: '#1E3A35',
+              emerald: '#2DD4BF',
+            }
+          },
+          boxShadow: {
+            'bordo-glow': '0 0 35px -5px rgba(129, 42, 79, 0.55)',
+            'bordo-glow-lg': '0 0 60px -10px rgba(224, 83, 142, 0.45)',
+            'emerald-glow': '0 0 35px -5px rgba(45, 212, 191, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5R7VLQ5S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GT-5R7VLQ5S');
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #070709;
+      color: #F5F3EF;
+      font-family: 'Satoshi', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #812A4F;
+    }
+
+    ::selection {
+      background: rgba(129, 42, 79, 0.85);
+      color: #F5F3EF;
+    }
+
+    /* Subtle Tech Grid Background */
+    .bg-tech-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(245, 243, 239, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 243, 239, 0.03) 1px, transparent 1px);
+    }
+
+    .bg-radial-bordo {
+      background: radial-gradient(circle at 50% 0%, rgba(129, 42, 79, 0.26) 0%, rgba(14, 14, 19, 0) 70%);
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: linear-gradient(145deg, rgba(22, 22, 30, 0.8) 0%, rgba(13, 13, 18, 0.9) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(245, 243, 239, 0.08);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(184, 61, 114, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(129, 42, 79, 0.3);
+    }
+
+    /* Gradient Text */
+    .text-gradient-creme {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5F3EF 55%, #C9B6BE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-bordo {
+      background: linear-gradient(135deg, #F06AA3 0%, #B83D72 50%, #812A4F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Primary Button Shine */
+    .btn-primary {
+      background: linear-gradient(135deg, #812A4F 0%, #A93566 50%, #812A4F 100%);
+      background-size: 200% auto;
+      transition: all 0.35s ease;
+      border: 1px solid rgba(240, 106, 163, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-position: right center;
+      box-shadow: 0 0 35px rgba(184, 61, 114, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typewriter Cursor */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.1em;
+      background-color: #E0538E;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Timeline Active State */
+    .timeline-step {
+      transition: all 0.4s ease;
+    }
+    .timeline-step.active-step .step-dot {
+      background-color: #E0538E;
+      box-shadow: 0 0 20px #E0538E, 0 0 40px #812A4F;
+      transform: scale(1.3);
+      border-color: #F5F3EF;
+    }
+    .timeline-step.active-step .step-card {
+      border-color: rgba(224, 83, 142, 0.55);
+      background: linear-gradient(145deg, rgba(129, 42, 79, 0.16) 0%, rgba(16, 16, 22, 0.95) 100%);
+    }
+
+    /* Pain Check Item */
+    .pain-card.selected {
+      border-color: rgba(224, 83, 142, 0.7);
+      background: linear-gradient(145deg, rgba(129, 42, 79, 0.24) 0%, rgba(19, 19, 26, 0.95) 100%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070709;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272735;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #812A4F;
+    }
+  </style>
+</head>
+
+<body class="bg-hl-bg text-hl-creme antialiased selection:bg-hl-bordo selection:text-hl-creme">
+
+  <!-- Ambient Background Layers -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute inset-0 bg-tech-grid opacity-70"></div>
+    <div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-hl-bordo/20 rounded-full blur-[140px]"></div>
+    <div class="absolute top-[35%] -right-64 w-[600px] h-[600px] bg-hl-verde/20 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[700px] h-[450px] bg-hl-bordo/15 rounded-full blur-[150px]"></div>
+  </div>
+
+  <!-- ==========================================
+       HEADER / NAVBAR
+       ========================================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 bg-hl-bg/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-hl-card border border-white/10 flex items-center justify-center shadow-inner group-hover:border-hl-bordoLight transition-colors">
+          <span class="font-display font-bold text-xl tracking-tight text-hl-creme">H<span class="text-hl-bordoGlow">.</span></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-semibold text-xl tracking-tight text-hl-creme">
+            Highlight<span class="text-hl-bordoGlow">Co.</span>
+          </span>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-hl-muted -mt-1">Growth & Branding</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 bg-hl-surface/90 border border-white/10 rounded-full px-3 py-1.5">
+        <a href="#inicio" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Início</a>
+        <a href="#solucoes" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Soluções</a>
+        <a href="#diagnostico" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Diagnóstico</a>
+        <a href="#processo" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Processo</a>
+        <a href="#comparativo" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Diferencial</a>
+        <a href="#resultados" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Resultados</a>
+        <a href="#founder" class="px-3.5 py-1.5 text-sm font-medium text-hl-creme/80 hover:text-hl-creme rounded-full hover:bg-white/5 transition">Quem Faz</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+           class="btn-primary inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-display font-medium text-sm text-hl-creme shadow-bordo-glow">
+          <span class="w-2 h-2 rounded-full bg-hl-emerald animate-pulse"></span>
+          <span>Agendar Call</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" aria-label="Abrir Menu" class="md:hidden p-2.5 rounded-xl bg-hl-card border border-white/10 text-hl-creme hover:border-hl-bordoLight transition">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-hl-surface/95 backdrop-blur-2xl px-6 py-6 space-y-4">
+      <div class="flex flex-col space-y-2">
+        <a href="#inicio" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Início</a>
+        <a href="#solucoes" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Soluções & Posicionamento</a>
+        <a href="#diagnostico" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Diagnóstico de Funil</a>
+        <a href="#processo" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Nosso Processo</a>
+        <a href="#comparativo" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Sem vs. Com Highlight</a>
+        <a href="#resultados" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Resultados em 90 Dias</a>
+        <a href="#founder" class="mobile-link py-2 text-base font-medium text-hl-creme/90 hover:text-hl-bordoGlow">Quem Faz Acontecer</a>
+      </div>
+      <div class="pt-2 border-t border-white/10">
+        <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+           class="btn-primary w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-display font-semibold text-sm text-hl-creme">
+          <span>AGENDE SUA CALL ESTRATÉGICA</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <!-- Interactive 3D Particle Canvas in Hero Background -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-65"></canvas>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          
+          <!-- Left Column: Copy & Conversion -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-hl-bordo/20 border border-hl-bordoLight/40 text-xs font-mono uppercase tracking-wider text-hl-creme">
+              <span class="w-2 h-2 rounded-full bg-hl-bordoGlow animate-ping"></span>
+              <span>Engenharia de Growth • Posicionamento • Performance</span>
+            </div>
+
+            <h1 class="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-gradient-creme">
+              Agência de branding para o seu negócio <span class="text-gradient-bordo italic font-normal">crescer.</span>
+            </h1>
+
+            <h2 class="font-display font-normal text-xl sm:text-2xl text-hl-creme/90 leading-snug max-w-2xl">
+              Veja o ROI do seu funil de marketing aumentar em <span class="text-hl-emerald font-semibold underline decoration-hl-emerald/40 decoration-2 underline-offset-4">90 dias</span> com o serviço de otimização da <span class="italic font-semibold text-hl-bordoGlow">HIGHLIGHT</span>.
+            </h2>
+
+            <p class="text-base sm:text-lg text-hl-muted max-w-xl font-normal leading-relaxed">
+              Entre em contato agora e descubra como conduzimos experimentos de marketing orientados a dados que colocam mais <span class="text-hl-creme font-medium">$$ no seu bolso</span> — sem depender da sorte ou apenas de indicações.
+            </p>
+
+            <!-- Hero CTAs -->
+            <div class="pt-3 flex flex-col sm:flex-row sm:items-center gap-4">
+              <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full font-display font-semibold text-sm sm:text-base text-hl-creme shadow-bordo-glow-lg group">
+                <span>AGENDE A SUA CALL ESTRATÉGICA AQUI</span>
+                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+
+              <a href="#tour-guiada" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-hl-creme/80 hover:text-hl-creme transition">
+                <span>Veja o que você recebe na call gratuita</span>
+                <svg class="w-4 h-4 text-hl-bordoGlow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Trust Micro-metrics -->
+            <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg">
+              <div>
+                <p class="font-display font-bold text-2xl sm:text-3xl text-hl-creme">+255%</p>
+                <p class="font-mono text-[11px] uppercase tracking-wider text-hl-muted">Aumento de CTR</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-2xl sm:text-3xl text-hl-emerald">+144%</p>
+                <p class="font-mono text-[11px] uppercase tracking-wider text-hl-muted">Crescimento Vendas</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-2xl sm:text-3xl text-hl-bordoGlow">90 Dias</p>
+                <p class="font-mono text-[11px] uppercase tracking-wider text-hl-muted">Ciclo de Sprint ROI</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Presentation Video Dashboard Frame -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <!-- Glow Behind Video -->
+              <div class="absolute -inset-2 bg-gradient-to-tr from-hl-bordo via-hl-bordoGlow/30 to-hl-verde rounded-3xl blur-2xl opacity-50"></div>
+
+              <div class="relative glass-card rounded-3xl overflow-hidden border border-white/15 shadow-2xl">
+                <!-- Terminal Header Bar -->
+                <div class="px-4 py-3 bg-hl-surface/90 border-b border-white/10 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                    <span class="ml-2 font-mono text-[11px] text-hl-muted">highlight_growth_briefing.mp4</span>
+                  </div>
+                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-hl-bordo/30 border border-hl-bordoLight/40 font-mono text-[10px] text-hl-bordoGlow">
+                    <span class="w-1.5 h-1.5 rounded-full bg-hl-bordoGlow animate-pulse"></span>
+                    APRESENTAÇÃO
+                  </span>
+                </div>
+
+                <!-- Video Container -->
+                <div class="relative bg-black aspect-[9/16] max-h-[540px] w-full mx-auto flex items-center justify-center overflow-hidden">
+                  <video id="hero-video" class="w-full h-full object-contain" playsinline controls preload="metadata" poster="assets/luan-feitosa.jpg">
+                    <source src="assets/hero-video.mp4" type="video/mp4" />
+                    <source src="https://highlightco.com.br/wp-content/uploads/2025/07/1000160279.mp4" type="video/mp4" />
+                    Seu navegador não suporta a reprodução de vídeo.
+                  </video>
+
+                  <!-- Custom Play Overlay (disappears once playing) -->
+                  <button id="video-play-overlay" aria-label="Reproduzir vídeo da Highlight"
+                          class="absolute inset-0 bg-gradient-to-t from-hl-bg/90 via-hl-bg/30 to-transparent flex flex-col items-center justify-center gap-3 group transition-opacity duration-300">
+                    <div class="w-16 h-16 rounded-full bg-hl-bordo/90 border border-hl-bordoGlow flex items-center justify-center shadow-bordo-glow-lg group-hover:scale-110 transition-transform">
+                      <svg class="w-7 h-7 text-hl-creme ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                      </svg>
+                    </div>
+                    <span class="px-3.5 py-1.5 rounded-full bg-hl-surface/90 border border-white/15 font-mono text-xs text-hl-creme shadow-lg">
+                      ▶ Assistir visão geral (Com áudio)
+                    </span>
+                  </button>
+                </div>
+
+                <!-- Bottom Status Bar -->
+                <div class="px-4 py-3 bg-hl-surface/90 border-t border-white/10 flex items-center justify-between text-xs">
+                  <span class="text-hl-muted font-mono">Método de Otimização Contínua</span>
+                  <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer" class="text-hl-bordoGlow hover:underline font-medium">
+                    Agendar tour guiada →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOLUÇÕES & POSICIONAMENTO (BENTO + 3D)
+         ========================================== -->
+    <section id="solucoes" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+        <!-- Part 1: Branding & Marketing Feitos Para Crescimento -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-xs uppercase tracking-widest text-hl-bordoGlow">
+              01 // ARQUITETURA DE VALOR
+            </div>
+            <h2 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl leading-tight">
+              Branding e marketing feitos para <span class="text-gradient-bordo">crescimento de negócios</span>
+            </h2>
+            <p class="text-hl-muted text-base sm:text-lg leading-relaxed">
+              A <strong class="text-hl-creme">HighLight</strong> é uma agência de marketing que atua na construção, posicionamento e crescimento de marcas. Combinamos estratégia de marca, marketing digital e experimentos orientados a dados para ajudar empresas, startups e negócios B2B a gerar valor real no mercado, com foco em:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="glass-card p-5 rounded-2xl flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-hl-bordo/25 border border-hl-bordoLight/40 flex items-center justify-center shrink-0 text-hl-bordoGlow">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-medium text-base text-hl-creme">Posicionamento de marca</h3>
+                  <p class="text-xs text-hl-muted mt-1">Diferenciação clara para sair da guerra de preços.</p>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-hl-bordo/25 border border-hl-bordoLight/40 flex items-center justify-center shrink-0 text-hl-bordoGlow">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-medium text-base text-hl-creme">Marketing estratégico</h3>
+                  <p class="text-xs text-hl-muted mt-1">Planejamento orientado a metas reais de receita.</p>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-hl-bordo/25 border border-hl-bordoLight/40 flex items-center justify-center shrink-0 text-hl-bordoGlow">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-medium text-base text-hl-creme">Performance e funil</h3>
+                  <p class="text-xs text-hl-muted mt-1">Otimização de conversão em cada etapa da jornada.</p>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-hl-bordo/25 border border-hl-bordoLight/40 flex items-center justify-center shrink-0 text-hl-bordoGlow">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-medium text-base text-hl-creme">Operação digital completa</h3>
+                  <p class="text-xs text-hl-muted mt-1">Serviços de marketing digital 100% alinhados ao negócio.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full font-display font-semibold text-sm text-hl-creme">
+                <span>QUERO MAIS INFORMAÇÕES</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Visual: Interactive 3D Data Allocation Canvas + Telemetry -->
+          <div class="lg:col-span-6">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                <div>
+                  <span class="font-mono text-xs text-hl-bordoGlow uppercase tracking-wider">TELEMETRIA DE CRESCIMENTO</span>
+                  <h3 class="font-display font-medium text-lg text-hl-creme">Ecossistema de Tração Integrado</h3>
+                </div>
+                <span class="px-2.5 py-1 rounded-md bg-hl-emerald/10 border border-hl-emerald/30 font-mono text-xs text-hl-emerald">
+                  4 Pilares Ativos
+                </span>
+              </div>
+
+              <!-- 3D Particle Chart Canvas -->
+              <div class="relative h-[320px] w-full flex items-center justify-center">
+                <canvas id="sector-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-center">
+                <div class="p-2.5 rounded-xl bg-white/[0.03]">
+                  <span class="block font-display font-semibold text-hl-bordoGlow text-lg">40%</span>
+                  <span class="font-mono text-[11px] text-hl-muted">Aquisição</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white/[0.03]">
+                  <span class="block font-display font-semibold text-hl-creme text-lg">25%</span>
+                  <span class="font-mono text-[11px] text-hl-muted">Branding</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white/[0.03]">
+                  <span class="block font-display font-semibold text-hl-emerald text-lg">20%</span>
+                  <span class="font-mono text-[11px] text-hl-muted">CRO & Funil</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white/[0.03]">
+                  <span class="block font-display font-semibold text-hl-creme/80 text-lg">15%</span>
+                  <span class="font-mono text-[11px] text-hl-muted">Retenção/LTV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part 2: Soluções para diferentes tipos de negócio -->
+        <div class="pt-8 reveal">
+          <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <span class="font-mono text-xs uppercase tracking-widest text-hl-emerald">PARA QUEM É A HIGHLIGHT</span>
+            <h2 class="font-display font-semibold text-3xl sm:text-4xl">
+              Soluções de marketing para diferentes tipos de negócio
+            </h2>
+            <p class="text-hl-muted text-base">
+              Os serviços da HighLight são indicados para empresas que precisam estruturar ou reposicionar sua marca no mercado com previsibilidade:
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="w-11 h-11 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/30 flex items-center justify-center text-hl-bordoGlow font-mono font-semibold">
+                  01
+                </div>
+                <h3 class="font-display font-semibold text-xl text-hl-creme">Startups em Tração</h3>
+                <p class="text-sm text-hl-muted leading-relaxed">
+                  Startups que buscam validação rápida de canais, tração consistente e crescimento escalável orientado a métricas.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-hl-bordoGlow">
+                <span>Validação & Growth</span>
+                <span>→</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="w-11 h-11 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/30 flex items-center justify-center text-hl-bordoGlow font-mono font-semibold">
+                  02
+                </div>
+                <h3 class="font-display font-semibold text-xl text-hl-creme">Empresas B2B</h3>
+                <p class="text-sm text-hl-muted leading-relaxed">
+                  Empresas B2B que precisam gerar demanda qualificada e construir um pipeline previsível de reuniões e contratos.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-hl-bordoGlow">
+                <span>Geração de Demanda</span>
+                <span>→</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="w-11 h-11 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/30 flex items-center justify-center text-hl-bordoGlow font-mono font-semibold">
+                  03
+                </div>
+                <h3 class="font-display font-semibold text-xl text-hl-creme">Negócios em Escala</h3>
+                <p class="text-sm text-hl-muted leading-relaxed">
+                  Negócios em crescimento que querem escalar seu marketing com estratégia, processos claros e inteligência de dados.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-hl-bordoGlow">
+                <span>Escala & Eficiência</span>
+                <span>→</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="w-11 h-11 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/30 flex items-center justify-center text-hl-bordoGlow font-mono font-semibold">
+                  04
+                </div>
+                <h3 class="font-display font-semibold text-xl text-hl-creme">Brasília & Todo o Brasil</h3>
+                <p class="text-sm text-hl-muted leading-relaxed">
+                  Empresas que procuram a proximidade de uma agência de marketing estratégico em Brasília, com atuação em todo o Brasil.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-hl-bordoGlow">
+                <span>Presença Nacional</span>
+                <span>→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         DIAGNÓSTICO INTERATIVO DE DORES
+         ========================================== -->
+    <section id="diagnostico" class="py-24 relative border-t border-white/5 bg-hl-surface/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+          
+          <!-- Left: Interactive Checklist -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hl-bordo/20 border border-hl-bordoLight/40 font-mono text-xs uppercase tracking-widest text-hl-bordoGlow">
+              02 // DIAGNÓSTICO DE GARGALOS
+            </div>
+            <h2 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl leading-tight">
+              Você se identifica com alguma das situações abaixo?
+            </h2>
+            <p class="text-hl-muted text-sm sm:text-base">
+              Selecione os sintomas que acontecem hoje na sua operação comercial e de marketing:
+            </p>
+
+            <!-- Interactive Pain Cards -->
+            <div id="pain-list" class="space-y-3.5">
+              <button type="button" data-pain="1" class="pain-card selected w-full text-left glass-card p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-4 group">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-hl-bordo/30 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <span class="font-display font-medium text-base sm:text-lg text-hl-creme">Não tem uma fonte de captação de leads previsível</span>
+                </div>
+                <span class="pain-indicator w-6 h-6 rounded-full border border-hl-bordoGlow bg-hl-bordo flex items-center justify-center text-xs text-white shrink-0">✓</span>
+              </button>
+
+              <button type="button" data-pain="2" class="pain-card w-full text-left glass-card p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-4 group">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-hl-bordo/30 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                  </div>
+                  <span class="font-display font-medium text-base sm:text-lg text-hl-creme">A quantidade de leads captada não é o suficiente</span>
+                </div>
+                <span class="pain-indicator w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-transparent shrink-0">✓</span>
+              </button>
+
+              <button type="button" data-pain="3" class="pain-card selected w-full text-left glass-card p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-4 group">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-hl-bordo/30 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+                  </div>
+                  <span class="font-display font-medium text-base sm:text-lg text-hl-creme">Sua empresa depende exclusivamente de indicação</span>
+                </div>
+                <span class="pain-indicator w-6 h-6 rounded-full border border-hl-bordoGlow bg-hl-bordo flex items-center justify-center text-xs text-white shrink-0">✓</span>
+              </button>
+
+              <button type="button" data-pain="4" class="pain-card w-full text-left glass-card p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-4 group">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-hl-bordo/30 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                  </div>
+                  <span class="font-display font-medium text-base sm:text-lg text-hl-creme">99% dos leads que você gera são desqualificados</span>
+                </div>
+                <span class="pain-indicator w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-transparent shrink-0">✓</span>
+              </button>
+
+              <button type="button" data-pain="5" class="pain-card w-full text-left glass-card p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-4 group">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-hl-bordo/30 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                  </div>
+                  <span class="font-display font-medium text-base sm:text-lg text-hl-creme">Você não consegue converter os leads em contratos</span>
+                </div>
+                <span class="pain-indicator w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-transparent shrink-0">✓</span>
+              </button>
+            </div>
+
+            <div class="pt-4">
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary inline-flex items-center gap-3 px-7 py-4 rounded-full font-display font-semibold text-sm sm:text-base text-hl-creme shadow-bordo-glow">
+                <span>VOCÊ É UM DELES? FALE COM A HIGHLIGHT</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: 3D Funnel Vortex & Live Diagnostic Meter -->
+          <div class="lg:col-span-5">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs uppercase tracking-wider text-hl-muted">RADAR DE VAZAMENTO DE FUNIL</span>
+                <span id="pain-badge" class="px-2.5 py-1 rounded-full bg-hl-bordo/30 border border-hl-bordoLight font-mono text-xs text-hl-bordoGlow">
+                  2 gargalos ativos
+                </span>
+              </div>
+
+              <!-- 3D Vortex Canvas -->
+              <div class="relative h-[290px] w-full flex items-center justify-center">
+                <canvas id="vortex-canvas" class="w-full h-full"></canvas>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-hl-bg/80 border border-white/10 space-y-2">
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-hl-muted">IMPACTO ESTIMADO NA RECEITA:</span>
+                  <span id="pain-severity" class="text-hl-bordoGlow font-semibold">ALTO POTENCIAL DE OTIMIZAÇÃO</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div id="pain-bar" class="h-full bg-gradient-to-r from-hl-bordo to-hl-bordoGlow transition-all duration-500" style="width: 45%;"></div>
+                </div>
+                <p id="pain-feedback" class="text-xs text-hl-muted pt-1">
+                  Destravamos a previsibilidade de aquisição e qualificação em ciclos de 90 dias com experimentos orientados a dados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROCESSO EM 5 ETAPAS (TIMELINE INTERATIVA)
+         ========================================== -->
+    <section id="processo" class="py-24 relative border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-xs uppercase tracking-widest text-hl-bordoGlow">
+            03 // ENGENHARIA DE EXECUÇÃO
+          </div>
+          <h2 class="font-display font-semibold text-3xl sm:text-5xl text-gradient-creme">
+            Nosso processo de alta qualidade
+          </h2>
+          <p class="text-hl-muted text-base sm:text-lg">
+            Cada etapa do nosso processo é meticulosamente planejada para garantir que sua empresa não apenas alcance, mas supere seus objetivos de marketing.
+          </p>
+        </div>
+
+        <!-- Timeline Wrapper -->
+        <div class="relative">
+          <!-- Vertical Line -->
+          <div class="absolute top-0 bottom-0 left-6 md:left-1/2 md:-translate-x-1/2 w-0.5 bg-gradient-to-b from-hl-bordo via-hl-bordoGlow/50 to-hl-verde/40"></div>
+
+          <div class="space-y-10 md:space-y-14">
+            
+            <!-- Step 01 -->
+            <div class="timeline-step active-step relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+              <div class="pl-16 md:pl-0 md:text-right">
+                <div class="step-card glass-card p-6 sm:p-7 rounded-2xl inline-block text-left md:text-right w-full">
+                  <span class="font-mono text-xs text-hl-bordoGlow uppercase tracking-widest">ETAPA 01 // DISCOVERY</span>
+                  <h3 class="font-display font-semibold text-2xl text-hl-creme mt-1 mb-2">01. Pesquisar</h3>
+                  <p class="text-hl-muted text-sm sm:text-base leading-relaxed">
+                    Pesquisamos direto da fonte para conhecer mais sobre seu cliente, mapear objeções reais e formular ofertas vencedoras.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block"></div>
+              <div class="step-dot absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-hl-bordo border-2 border-hl-creme transition-all duration-300"></div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="timeline-step relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+              <div class="hidden md:block"></div>
+              <div class="pl-16 md:pl-0">
+                <div class="step-card glass-card p-6 sm:p-7 rounded-2xl w-full">
+                  <span class="font-mono text-xs text-hl-bordoGlow uppercase tracking-widest">ETAPA 02 // DATA INTELLIGENCE</span>
+                  <h3 class="font-display font-semibold text-2xl text-hl-creme mt-1 mb-2">02. Analisar</h3>
+                  <p class="text-hl-muted text-sm sm:text-base leading-relaxed">
+                    Analisamos os dados coletados e o histórico do seu funil para identificar padrões, alavancas ocultas e insights valiosos para sua estratégia.
+                  </p>
+                </div>
+              </div>
+              <div class="step-dot absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-hl-card border-2 border-white/30 transition-all duration-300"></div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="timeline-step relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+              <div class="pl-16 md:pl-0 md:text-right">
+                <div class="step-card glass-card p-6 sm:p-7 rounded-2xl inline-block text-left md:text-right w-full">
+                  <span class="font-mono text-xs text-hl-bordoGlow uppercase tracking-widest">ETAPA 03 // ROADMAP 90 DIAS</span>
+                  <h3 class="font-display font-semibold text-2xl text-hl-creme mt-1 mb-2">03. Planejar</h3>
+                  <p class="text-hl-muted text-sm sm:text-base leading-relaxed">
+                    Desenvolvemos um plano personalizado de crescimento e posicionamento alinhado com seus objetivos de negócio e público-alvo.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block"></div>
+              <div class="step-dot absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-hl-card border-2 border-white/30 transition-all duration-300"></div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="timeline-step relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+              <div class="hidden md:block"></div>
+              <div class="pl-16 md:pl-0">
+                <div class="step-card glass-card p-6 sm:p-7 rounded-2xl w-full">
+                  <span class="font-mono text-xs text-hl-bordoGlow uppercase tracking-widest">ETAPA 04 // SPRINT EXECUTION</span>
+                  <h3 class="font-display font-semibold text-2xl text-hl-creme mt-1 mb-2">04. Implementar</h3>
+                  <p class="text-hl-muted text-sm sm:text-base leading-relaxed">
+                    Executamos as ações, campanhas, landing pages e experimentos definidos com precisão técnica e monitoramento constante.
+                  </p>
+                </div>
+              </div>
+              <div class="step-dot absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-hl-card border-2 border-white/30 transition-all duration-300"></div>
+            </div>
+
+            <!-- Step 05 -->
+            <div class="timeline-step relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+              <div class="pl-16 md:pl-0 md:text-right">
+                <div class="step-card glass-card p-6 sm:p-7 rounded-2xl inline-block text-left md:text-right w-full">
+                  <span class="font-mono text-xs text-hl-emerald uppercase tracking-widest">ETAPA 05 // SCALE & CRO</span>
+                  <h3 class="font-display font-semibold text-2xl text-hl-creme mt-1 mb-2">05. Otimizar</h3>
+                  <p class="text-hl-muted text-sm sm:text-base leading-relaxed">
+                    Ajustamos e otimizamos continuamente cada canal e etapa de conversão para maximizar o ROI e escalar resultados.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block"></div>
+              <div class="step-dot absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-hl-card border-2 border-white/30 transition-all duration-300"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-14 text-center">
+          <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+             class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-full font-display font-semibold text-sm sm:text-base text-hl-creme shadow-bordo-glow">
+            <span>CONVERSAR COM A HIGHLIGHT</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EQUAÇÃO DINÂMICA (TYPEWRITER ENGINE)
+         ========================================== -->
+    <section class="py-20 relative border-t border-white/5 bg-hl-surface/60">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 text-center border border-hl-bordoLight/30 relative overflow-hidden">
+          <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-hl-bordo/25 blur-3xl pointer-events-none"></div>
+
+          <span class="font-mono text-xs uppercase tracking-widest text-hl-muted">A FÓRMULA DA HIGHLIGHT</span>
+          <h2 class="font-display font-semibold text-2xl sm:text-4xl text-hl-bordoGlow mt-2">
+            Pesquisa + Analytics + Experimentos =
+          </h2>
+
+          <!-- Dynamic MORE -->
+          <div class="mt-6 min-h-[3.5rem] flex items-center justify-center">
+            <p class="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-hl-creme">
+              <span class="text-hl-emerald">Mais </span><span id="typewriter-more">Canais de Aquisição de Clientes</span><span class="typewriter-cursor"></span>
+            </p>
+          </div>
+
+          <p class="font-display font-medium text-lg sm:text-2xl text-hl-bordoGlow mt-8">
+            e consequentemente...
+          </p>
+
+          <!-- Dynamic LESS -->
+          <div class="mt-3 min-h-[3rem] flex items-center justify-center">
+            <p class="font-display font-semibold text-xl sm:text-3xl lg:text-4xl text-hl-creme/80">
+              <span class="text-hl-bordoGlow">Menos </span><span id="typewriter-less">Custo de Aquisição (CAC)</span><span class="typewriter-cursor"></span>
+            </p>
+          </div>
+
+          <!-- Pills Summary -->
+          <div class="mt-10 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-2">
+            <span class="px-3 py-1 rounded-full bg-hl-emerald/10 border border-hl-emerald/25 font-mono text-xs text-hl-emerald">+ Taxa de Cliques (CTR)</span>
+            <span class="px-3 py-1 rounded-full bg-hl-emerald/10 border border-hl-emerald/25 font-mono text-xs text-hl-emerald">+ Conversão por Etapa</span>
+            <span class="px-3 py-1 rounded-full bg-hl-emerald/10 border border-hl-emerald/25 font-mono text-xs text-hl-emerald">+ Lifetime Value (LTV)</span>
+            <span class="px-3 py-1 rounded-full bg-hl-emerald/10 border border-hl-emerald/25 font-mono text-xs text-hl-emerald">+ Automação Inteligente</span>
+            <span class="px-3 py-1 rounded-full bg-hl-bordo/20 border border-hl-bordoLight/30 font-mono text-xs text-hl-bordoGlow">- Custo por Lead (CPL)</span>
+            <span class="px-3 py-1 rounded-full bg-hl-bordo/20 border border-hl-bordoLight/30 font-mono text-xs text-hl-bordoGlow">- Suposições e Adivinhações</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         COMPARATIVO: SEM HIGHLIGHT vs COM HIGHLIGHT
+         ========================================== -->
+    <section id="comparativo" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-4xl mx-auto mb-16 space-y-4 reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-xs uppercase tracking-widest text-hl-bordoGlow">
+            04 // SQUAD DEDICADO DE GROWTH
+          </div>
+          <h2 class="font-display font-semibold text-3xl sm:text-5xl leading-tight">
+            Serviços de marketing digital para o que você precisar:<br class="hidden sm:inline" />
+            <span class="text-gradient-bordo italic font-normal">Um time de marketing completo</span> pelo preço de um único funcionário
+          </h2>
+          <p class="text-hl-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+            Você não precisa mais contratar, treinar e gerenciar uma equipe interna para ver seu negócio crescer. Com a <strong class="text-hl-creme">HIGHLIGHT</strong>, você terceiriza 100% da operação de marketing com um time completo — por uma taxa mensal única, sem dor de cabeça com folha, turnover, gestão ou burocracia.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch reveal">
+          
+          <!-- Sem HIGHLIGHT -->
+          <div class="glass-card rounded-3xl p-8 sm:p-10 border border-red-500/20 bg-gradient-to-b from-red-950/10 to-hl-card flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                <div>
+                  <span class="font-mono text-xs uppercase tracking-widest text-red-400">MODELO TRADICIONAL / INTERNO</span>
+                  <h3 class="font-display font-semibold text-2xl sm:text-3xl text-hl-creme mt-1">Sem HIGHLIGHT</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+              </div>
+
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3.5 text-hl-creme/80">
+                  <span class="w-6 h-6 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0 mt-0.5">✕</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Custos elevados com CLT, PJ e encargos</strong>
+                    <span class="text-sm text-hl-muted">Múltiplos salários, impostos, ferramentas e passivos trabalhistas.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5 text-hl-creme/80">
+                  <span class="w-6 h-6 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0 mt-0.5">✕</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Processo de seleção e rampagem demorado</strong>
+                    <span class="text-sm text-hl-muted">Meses contratando e treinando profissionais sem garantia de performance.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5 text-hl-creme/80">
+                  <span class="w-6 h-6 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0 mt-0.5">✕</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Falta de direcionamento estratégico</strong>
+                    <span class="text-sm text-hl-muted">Ações isoladas sem método científico de testes e sem visão de funil completo.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5 text-hl-creme/80">
+                  <span class="w-6 h-6 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0 mt-0.5">✕</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Gestão diária cansativa e retrabalho</strong>
+                    <span class="text-sm text-hl-muted">Você gasta seu tempo cobrando tarefas operacionais em vez de focar no negócio.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-white/10 font-mono text-xs text-red-400/80">
+              STATUS: ALTO CUSTO FIXO & BAIXA PREVISIBILIDADE
+            </div>
+          </div>
+
+          <!-- Com HIGHLIGHT -->
+          <div class="glass-card rounded-3xl p-8 sm:p-10 border-2 border-hl-bordoLight/60 bg-gradient-to-b from-hl-bordo/20 via-hl-card to-hl-card shadow-bordo-glow flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 right-0 px-4 py-1.5 bg-hl-bordo text-hl-creme font-mono text-[11px] uppercase tracking-wider rounded-bl-2xl">
+              RECOMENDADO
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                <div>
+                  <span class="font-mono text-xs uppercase tracking-widest text-hl-emerald">GROWTH AS A SERVICE</span>
+                  <h3 class="font-display font-semibold text-2xl sm:text-3xl text-hl-creme mt-1">Com HIGHLIGHT</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-hl-emerald/15 border border-hl-emerald/40 flex items-center justify-center text-hl-emerald">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+              </div>
+
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3.5">
+                  <span class="w-6 h-6 rounded-full bg-hl-emerald/20 border border-hl-emerald/50 flex items-center justify-center text-hl-emerald shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Fee mensal fixo, sem surpresas</strong>
+                    <span class="text-sm text-hl-muted">Previsibilidade financeira total pelo investimento equivalente a um único profissional.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5">
+                  <span class="w-6 h-6 rounded-full bg-hl-emerald/20 border border-hl-emerald/50 flex items-center justify-center text-hl-emerald shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Time pronto e validado operando na Semana 1</strong>
+                    <span class="text-sm text-hl-muted">Plug-and-play imediato na sua operação sem perda de tempo com recrutamento.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5">
+                  <span class="w-6 h-6 rounded-full bg-hl-emerald/20 border border-hl-emerald/50 flex items-center justify-center text-hl-emerald shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Especialistas atuando com plano e meta clara</strong>
+                    <span class="text-sm text-hl-muted">Estratégia, copy, design, tráfego, dados e CRO trabalhando juntos pelo seu ROI.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3.5">
+                  <span class="w-6 h-6 rounded-full bg-hl-emerald/20 border border-hl-emerald/50 flex items-center justify-center text-hl-emerald shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <strong class="block text-hl-creme font-medium">Tudo gerenciado por nós, com entregas semanais</strong>
+                    <span class="text-sm text-hl-muted">Sprints semanais com relatórios claros de experimentos, aprendizados e receita gerada.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <span class="font-mono text-xs text-hl-emerald">STATUS: PRONTO PARA ESCALAR EM 90 DIAS</span>
+              <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-xs sm:text-sm text-hl-creme">
+                <span>FALE COM A HIGHLIGHT</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         RESULTADOS DA HIGHLIGHT EM 90 DIAS
+         ========================================== -->
+    <section id="resultados" class="py-24 relative border-t border-white/5 bg-hl-surface/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hl-emerald/10 border border-hl-emerald/30 font-mono text-xs uppercase tracking-widest text-hl-emerald">
+            05 // BENCHMARK DE PERFORMANCE
+          </div>
+          <h2 class="font-display font-semibold text-3xl sm:text-5xl">
+            Resultados da <span class="italic font-normal text-hl-bordoGlow">HighLight</span> em 90 dias
+          </h2>
+          <p class="text-hl-muted text-base sm:text-lg">
+            Métricas reais entregues através da nossa rotina de experimentação acelerada e otimização de funil de ponta a ponta:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+          
+          <!-- Metric 1 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">CANAIS DE TRAÇÃO</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-4xl sm:text-5xl text-hl-creme mb-2">4 Canais</p>
+              <p class="text-sm sm:text-base text-hl-muted">Configuração completa e testes estruturados de 4 canais de aquisição de clientes.</p>
+            </div>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">VELOCIDADE DE TESTE</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-4xl sm:text-5xl text-hl-bordoGlow mb-2">13,8</p>
+              <p class="text-sm sm:text-base text-hl-muted">Experimentos de marketing lançados e documentados em média a cada ciclo.</p>
+            </div>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">OTIMIZAÇÃO DE ANÚNCIOS & COPY</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-emerald/15 border border-hl-emerald/40 flex items-center justify-center text-hl-emerald">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-4xl sm:text-5xl text-hl-emerald mb-2">+255%</p>
+              <p class="text-sm sm:text-base text-hl-muted">Aumento médio na Taxa de Cliques (CTR) com narrativas e criativos validados.</p>
+            </div>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">MARTECH STACK</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-4xl sm:text-5xl text-hl-creme mb-2">9 Tools</p>
+              <p class="text-sm sm:text-base text-hl-muted">9 ferramentas integradas à sua infraestrutura digital para rastreamento e automação.</p>
+            </div>
+          </div>
+
+          <!-- Metric 5 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">IMPACTO EM RECEITA</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-emerald/15 border border-hl-emerald/40 flex items-center justify-center text-hl-emerald">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-4xl sm:text-5xl text-hl-emerald mb-2">+144%</p>
+              <p class="text-sm sm:text-base text-hl-muted">Aumento em vendas diretas impulsionado pela qualificação e cadência do funil.</p>
+            </div>
+          </div>
+
+          <!-- Metric 6 -->
+          <div class="glass-card rounded-3xl p-7 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-hl-muted uppercase">CONVERSION RATE (CRO)</span>
+              <div class="w-10 h-10 rounded-xl bg-hl-bordo/20 border border-hl-bordoLight/40 flex items-center justify-center text-hl-bordoGlow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+            </div>
+            <div>
+              <p class="font-display font-bold text-3xl sm:text-4xl text-hl-creme mb-2">5,32% <span class="text-hl-bordoGlow">→</span> 12,37%</p>
+              <p class="text-sm sm:text-base text-hl-muted">Salto real na taxa de conversão com otimização contínua de página e oferta.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TOUR GUIADA / O QUE VOCÊ RECEBE NA CALL
+         ========================================== -->
+    <section id="tour-guiada" class="py-24 relative border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 lg:p-14 border border-hl-bordoLight/40 bg-gradient-to-br from-hl-bordo/25 via-hl-card to-hl-surface relative overflow-hidden">
+          <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-hl-bordoGlow/15 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div class="lg:col-span-7 space-y-5">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hl-emerald/15 border border-hl-emerald/30 font-mono text-xs text-hl-emerald">
+                FREE CALL ESTRATÉGICA // 100% PRÁTICA
+              </span>
+              <h2 class="font-display font-semibold text-2xl sm:text-4xl leading-tight">
+                Agende sua tour guiada pelo nosso processo e descubra se a <span class="italic text-hl-bordoGlow">Highlight</span> é a solução certa para você <span class="text-hl-muted font-normal text-xl sm:text-2xl">(com certeza é!)</span>
+              </h2>
+              <p class="text-hl-muted text-base leading-relaxed">
+                Entre em contato e comece a aumentar a receita do seu funil a partir de uma call estratégica gratuita. Veja o que você recebe na sessão:
+              </p>
+
+              <ul class="space-y-3 pt-2">
+                <li class="flex items-center gap-3 text-sm sm:text-base text-hl-creme">
+                  <span class="w-5 h-5 rounded-full bg-hl-emerald/20 text-hl-emerald flex items-center justify-center text-xs shrink-0">✓</span>
+                  <span>Plano de 90 dias focado em aumentar a receita</span>
+                </li>
+                <li class="flex items-center gap-3 text-sm sm:text-base text-hl-creme">
+                  <span class="w-5 h-5 rounded-full bg-hl-emerald/20 text-hl-emerald flex items-center justify-center text-xs shrink-0">✓</span>
+                  <span>Projeção de ROI com as taxas atuais do seu negócio</span>
+                </li>
+                <li class="flex items-center gap-3 text-sm sm:text-base text-hl-creme">
+                  <span class="w-5 h-5 rounded-full bg-hl-emerald/20 text-hl-emerald flex items-center justify-center text-xs shrink-0">✓</span>
+                  <span>Explicação do processo e como aplicar no seu business</span>
+                </li>
+                <li class="flex items-center gap-3 text-sm sm:text-base text-hl-creme">
+                  <span class="w-5 h-5 rounded-full bg-hl-emerald/20 text-hl-emerald flex items-center justify-center text-xs shrink-0">✓</span>
+                  <span>Conheça os métodos de pesquisa usados para aprender sobre seu cliente</span>
+                </li>
+                <li class="flex items-center gap-3 text-sm sm:text-base text-hl-creme">
+                  <span class="w-5 h-5 rounded-full bg-hl-emerald/20 text-hl-emerald flex items-center justify-center text-xs shrink-0">✓</span>
+                  <span>Tire suas dúvidas ao vivo sobre o seu funil de vendas</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col items-center justify-center text-center p-6 sm:p-8 rounded-2xl bg-hl-bg/80 border border-white/10 space-y-5">
+              <div class="w-14 h-14 rounded-2xl bg-hl-bordo/30 border border-hl-bordoLight flex items-center justify-center text-hl-bordoGlow shadow-bordo-glow">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <p class="font-display font-semibold text-xl text-hl-creme">Sessão de Diagnóstico & ROI</p>
+                <p class="text-xs font-mono text-hl-muted mt-1">30 MINUTOS • ONLINE • SEM COMPROMISSO</p>
+              </div>
+              <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary w-full py-4 px-6 rounded-full font-display font-semibold text-sm sm:text-base text-hl-creme shadow-bordo-glow-lg flex items-center justify-center gap-2">
+                <span>AGENDAR CALL AGORA</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <p class="text-[11px] text-hl-muted">
+                Escolha o melhor dia e horário diretamente na agenda do Cal.com.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FOUNDER SECTION (QUEM FAZ A HIGHLIGHT ACONTECER)
+         ========================================== -->
+    <section id="founder" class="py-24 relative border-t border-white/5 bg-hl-surface/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Photo Column -->
+          <div class="lg:col-span-5">
+            <div class="relative max-w-sm mx-auto">
+              <div class="absolute -inset-3 bg-gradient-to-tr from-hl-bordo to-hl-verde rounded-3xl blur-xl opacity-40"></div>
+              <div class="relative glass-card rounded-3xl p-3 border border-white/15 overflow-hidden">
+                <img src="assets/luan-feitosa.jpg" alt="Luan Feitosa — Founder e CEO da Highlight Co."
+                     class="w-full h-[460px] object-cover rounded-2xl" loading="lazy" />
+                <div class="p-4 flex items-center justify-between">
+                  <div>
+                    <p class="font-display font-semibold text-lg text-hl-creme">Luan Feitosa</p>
+                    <p class="font-mono text-xs text-hl-bordoGlow">Founder & CEO, Highlight Co.</p>
+                  </div>
+                  <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[11px] text-hl-creme/80">
+                    Desde 2018
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hl-bordo/20 border border-hl-bordoLight/40 font-mono text-xs uppercase tracking-widest text-hl-bordoGlow">
+              06 // QUEM FAZ A HIGHLIGHT ACONTECER
+            </div>
+
+            <h2 class="font-display font-semibold text-3xl sm:text-5xl leading-tight">
+              Luan Feitosa <span class="block text-xl sm:text-2xl font-normal text-hl-muted mt-1">Founder e CEO, Highlight Co.</span>
+            </h2>
+
+            <div class="space-y-4 text-hl-creme/85 text-base sm:text-lg leading-relaxed">
+              <p>
+                Desde 2018, ajudo empreendedores a viverem do que amam através dos seus negócios, usando <strong class="text-hl-creme">marketing, negócios, produto e tecnologia</strong> como ferramentas para construir sistemas de vendas online previsíveis.
+              </p>
+              <p>
+                Meu nome é <strong class="text-hl-creme">Luan Feitosa</strong>. Criei a <strong class="text-hl-bordoGlow">Highlight</strong> para construir a agência de marketing do futuro: que mostra resultados mensuráveis com constância, com um método de gestão de crescimento contínuo, orientada por objetivos de negócios e que usa os dados para controlar cada etapa do processo que leva o seu cliente do <em>“quem é você?”</em> até comprar seu produto e indicar para um amigo.
+              </p>
+              <blockquote class="p-4 rounded-2xl bg-hl-bordo/15 border-l-4 border-hl-bordoGlow text-hl-creme font-display text-lg">
+                “O meu crescimento é o seu crescimento! Será um prazer conhecer mais sobre você e seu negócio. Vamos conversar mais na nossa Free Call — te vejo lá!”
+              </blockquote>
+            </div>
+
+            <div class="pt-2">
+              <a href="https://cal.com/luandahighlight/free-call-highlight?user=luandahighlight" target="_blank" rel="noopener noreferrer"
+                 class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-full font-display font-semibold text-sm sm:text-base text-hl-creme shadow-bordo-glow">
+                <span>AGENDAR CALL COM O LUAN AGORA</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="relative z-10 border-t border-white/10 bg-hl-bg py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
+        <div class="space-y-2">
+          <a href="#inicio" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-hl-card border border-white/10 flex items-center justify-center">
+              <span class="font-display font-bold text-lg text-hl-creme">H<span class="text-hl-bordoGlow">.</span></span>
+            </div>
+            <span class="font-display font-semibold text-xl text-hl-creme">Highlight<span class="text-hl-bordoGlow">Co.</span></span>
+          </a>
+          <p class="text-sm text-hl-muted max-w-sm">
+            Agência de branding e growth focada em estratégia, posicionamento e experimentos orientados a dados para empresas e startups.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-6 text-sm text-hl-muted">
+          <a href="#inicio" class="hover:text-hl-creme transition">Início</a>
+          <a href="#solucoes" class="hover:text-hl-creme transition">Soluções</a>
+          <a href="#diagnostico" class="hover:text-hl-creme transition">Diagnóstico</a>
+          <a href="#processo" class="hover:text-hl-creme transition">Processo</a>
+          <a href="#resultados" class="hover:text-hl-creme transition">Resultados</a>
+          <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer" class="text-hl-bordoGlow hover:underline font-medium">Agendar Call</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-hl-muted font-mono">
+        <p>© <span id="year">2026</span> Highlight Co. Todos os direitos reservados.</p>
+        <p>Brasília, DF • Atuação em todo o Brasil</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       INTERACTIVE SCRIPTS (UI, TYPEWRITER & 3D CANVAS)
+       ========================================== -->
+  <script>
+    // 1. Dynamic Year & Mobile Menu
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden', !isHidden);
+        iconOpen.classList.toggle('hidden', isHidden);
+        iconClose.classList.toggle('hidden', !isHidden);
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    // 2. Custom Hero Video Overlay
+    const heroVideo = document.getElementById('hero-video');
+    const videoOverlay = document.getElementById('video-play-overlay');
+    if (heroVideo && videoOverlay) {
+      videoOverlay.addEventListener('click', () => {
+        heroVideo.play();
+        videoOverlay.classList.add('opacity-0', 'pointer-events-none');
+      });
+      heroVideo.addEventListener('play', () => {
+        videoOverlay.classList.add('opacity-0', 'pointer-events-none');
+      });
+    }
+
+    // 3. Scroll Reveal & Timeline Active Highlighter
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timelineSteps.forEach(step => step.classList.remove('active-step'));
+          entry.target.classList.add('active-step');
+        }
+      });
+    }, { rootMargin: '-38% 0px -38% 0px' });
+
+    timelineSteps.forEach(step => timelineObserver.observe(step));
+
+    // 4. Interactive Pain Diagnostic Selector
+    const painCards = document.querySelectorAll('.pain-card');
+    const painBadge = document.getElementById('pain-badge');
+    const painBar = document.getElementById('pain-bar');
+    const painSeverity = document.getElementById('pain-severity');
+
+    function updatePainDiagnostic() {
+      const selectedCount = document.querySelectorAll('.pain-card.selected').length;
+      painBadge.textContent = `${selectedCount} ${selectedCount === 1 ? 'gargalo ativo' : 'gargalos ativos'}`;
+      const pct = Math.max(18, selectedCount * 20);
+      painBar.style.width = `${pct}%`;
+
+      if (selectedCount === 0) {
+        painSeverity.textContent = 'SELECIONE SEUS DESAFIOS ACIMA';
+      } else if (selectedCount <= 2) {
+        painSeverity.textContent = 'OPORTUNIDADE CLARA DE ESCALA';
+      } else {
+        painSeverity.textContent = 'URGÊNCIA ALTA DE OTIMIZAÇÃO DE FUNIL';
+      }
+    }
+
+    painCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('selected');
+        const indicator = card.querySelector('.pain-indicator');
+        if (card.classList.contains('selected')) {
+          indicator.classList.add('border-hl-bordoGlow', 'bg-hl-bordo', 'text-white');
+          indicator.classList.remove('border-white/20', 'text-transparent');
+        } else {
+          indicator.classList.remove('border-hl-bordoGlow', 'bg-hl-bordo', 'text-white');
+          indicator.classList.add('border-white/20', 'text-transparent');
+        }
+        updatePainDiagnostic();
+      });
+    });
+
+    // 5. Typewriter Effect (Pesquisa + Analytics + Experimentos)
+    function startTypewriter(elementId, phrases, speed = 95, deleteSpeed = 45, pause = 1900) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      let phraseIdx = 0;
+      let charIdx = phrases[0].length;
+      let deleting = true;
+
+      function tick() {
+        const current = phrases[phraseIdx % phrases.length];
+        if (deleting) {
+          charIdx--;
+          el.textContent = current.substring(0, charIdx);
+          if (charIdx <= 0) {
+            deleting = false;
+            phraseIdx++;
+            setTimeout(tick, 350);
+            return;
+          }
+          setTimeout(tick, deleteSpeed);
+        } else {
+          charIdx++;
+          el.textContent = current.substring(0, charIdx);
+          if (charIdx >= current.length) {
+            deleting = true;
+            setTimeout(tick, pause);
+            return;
+          }
+          setTimeout(tick, speed);
+        }
+      }
+      setTimeout(tick, pause);
+    }
+
+    startTypewriter('typewriter-more', [
+      'Canais de Aquisição de Clientes',
+      'Visitas Qualificadas ao seu Site',
+      'Cadastros no Formulário',
+      'Taxa de Cliques (CTR)',
+      'Taxa de Conversão por Etapa',
+      'Volume de Leads Qualificados',
+      'Conhecimento sobre seu Cliente',
+      'Engajamento e Retenção',
+      'Automação Inteligente',
+      'Lifetime Value (LTV)'
+    ]);
+
+    startTypewriter('typewriter-less', [
+      'Custo de Aquisição (CAC)',
+      'Custo por Lead (CPL)',
+      'Taxa de Abandono do Site',
+      'Suposições e Adivinhações',
+      'Dor de Cabeça na Gestão'
+    ]);
+
+    // 6. Lightweight High-Tech 3D Canvas Animations (Zero External Dependencies)
+    // 6A: Hero Constellation & Data Particles
+    (function initHeroCanvas() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, particles;
+
+      function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const count = 55;
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r: Math.random() * 2 + 1,
+        accent: Math.random() > 0.55
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.accent ? 'rgba(224, 83, 142, 0.75)' : 'rgba(245, 243, 239, 0.35)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(184, 61, 114, ${(1 - dist / 130) * 0.22})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // 6B: 3D Exploded Sector Particle Chart (Soluções Section)
+    (function initSectorCanvas() {
+      const canvas = document.getElementById('sector-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+      function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const sectors = [
+        { share: 0.40, color: '#E0538E' },
+        { share: 0.25, color: '#F5F3EF' },
+        { share: 0.20, color: '#2DD4BF' },
+        { share: 0.15, color: '#812A4F' }
+      ];
+
+      const points = [];
+      let startAngle = 0;
+      sectors.forEach((sec) => {
+        const endAngle = startAngle + sec.share * Math.PI * 2;
+        const midAngle = (startAngle + endAngle) / 2;
+        const offsetX = Math.cos(midAngle) * 8;
+        const offsetY = Math.sin(midAngle) * 8;
+        const totalPts = Math.floor(420 * sec.share);
+
+        for (let i = 0; i < totalPts; i++) {
+          const a = startAngle + Math.random() * (endAngle - startAngle);
+          const r = 24 + Math.sqrt(Math.random()) * 92;
+          const z = (Math.random() - 0.5) * 28;
+          points.push({
+            x: offsetX + r * Math.cos(a),
+            y: offsetY + r * Math.sin(a),
+            z,
+            color: sec.color,
+            size: Math.random() * 1.6 + 1
+          });
+        }
+        startAngle = endAngle;
+      });
+
+      let angleZ = 0;
+      let mouseX = 0.25, mouseY = 0.2;
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = ((e.clientY - rect.top) / rect.height - 0.5) * 0.9;
+        mouseY = ((e.clientX - rect.left) / rect.width - 0.5) * 0.9;
+      });
+
+      function render() {
+        ctx.clearRect(0, 0, w, h);
+        angleZ += 0.004;
+        const cx = w / 2;
+        const cy = h / 2;
+        const cosZ = Math.cos(angleZ), sinZ = Math.sin(angleZ);
+        const cosX = Math.cos(mouseX), sinX = Math.sin(mouseX);
+        const cosY = Math.cos(mouseY), sinY = Math.sin(mouseY);
+
+        for (let i = 0; i < points.length; i++) {
+          const p = points[i];
+          // Rotate Z
+          let x1 = p.x * cosZ - p.y * sinZ;
+          let y1 = p.x * sinZ + p.y * cosZ;
+          let z1 = p.z;
+          // Rotate X & Y
+          let y2 = y1 * cosX - z1 * sinX;
+          let z2 = y1 * sinX + z1 * cosX;
+          let x3 = x1 * cosY + z2 * sinY;
+          let z3 = -x1 * sinY + z2 * cosY;
+
+          const scale = 260 / (260 + z3);
+          const px = cx + x3 * scale;
+          const py = cy + y2 * scale;
+
+          ctx.beginPath();
+          ctx.arc(px, py, p.size * scale, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.min(1, Math.max(0.25, (z3 + 120) / 200));
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+
+    // 6C: 3D Funnel Vortex Canvas (Diagnóstico Section)
+    (function initVortexCanvas() {
+      const canvas = document.getElementById('vortex-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+      function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const pts = Array.from({ length: 380 }, (_, i) => {
+        const t = i / 380;
+        const y = (t - 0.5) * 190;
+        const radius = 22 + Math.pow(1 - t, 1.35) * 85;
+        const angle = i * 0.35;
+        return {
+          radius,
+          y,
+          angle,
+          speed: 0.012 + (1 - t) * 0.015,
+          color: t > 0.68 ? '#2DD4BF' : (t > 0.35 ? '#E0538E' : '#F5F3EF')
+        };
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        const cx = w / 2;
+        const cy = h / 2;
+
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          p.angle += p.speed;
+          const x = Math.cos(p.angle) * p.radius;
+          const z = Math.sin(p.angle) * p.radius;
+          const scale = 250 / (250 + z);
+          const px = cx + x * scale;
+          const py = cy + p.y * scale;
+
+          ctx.beginPath();
+          ctx.arc(px, py, 1.8 * scale, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.min(0.95, Math.max(0.2, (z + 100) / 180));
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
+</body>
+</html>
