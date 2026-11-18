@@ -141,75 +141,12 @@
       background: linear-gradient(145deg, rgba(129, 42, 79, 0.22) 0%, rgba(18, 17, 24, 0.92) 100%);
     }
 
-    /* ==========================================
-       MOTION SECTION TRANSITIONS (NO DEAD SPACE)
-       ========================================== */
-    /* 1. Animated Horizon Light Pulse */
-    .horizon-divider {
-      position: relative;
-      width: 100%;
-      height: 2px;
-      overflow: visible;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-    }
-
-    .horizon-track {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(245, 243, 239, 0.06) 15%, rgba(168, 66, 109, 0.28) 50%, rgba(245, 243, 239, 0.06) 85%, transparent 100%);
-      overflow: hidden;
-    }
-
-    .horizon-runner {
-      position: absolute;
-      top: 0;
-      left: -35%;
-      width: 35%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(168, 66, 109, 0.85) 50%, #F5F3EF 80%, transparent 100%);
-      animation: horizon-sweep 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    .horizon-runner.reverse {
-      animation: horizon-sweep-rev 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    .horizon-aura {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 520px;
-      height: 90px;
-      background: radial-gradient(ellipse at center, rgba(129, 42, 79, 0.22) 0%, rgba(129, 42, 79, 0) 70%);
-      pointer-events: none;
-    }
-
-    @keyframes horizon-sweep {
-      0% { left: -35%; opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      100% { left: 100%; opacity: 0; }
-    }
-
-    @keyframes horizon-sweep-rev {
-      0% { left: 100%; opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      100% { left: -35%; opacity: 0; }
-    }
-
-    /* 2. Flowing Particle Wave Canvas Divider */
+    /* Flowing Particle Wave Canvas Divider (Multi-Mode Pattern Break) */
     .wave-transition-wrap {
       position: relative;
       width: 100%;
-      height: 68px;
-      margin: -22px 0;
+      height: 84px;
+      margin: -24px 0;
       pointer-events: none;
       overflow: hidden;
     }
@@ -468,9 +405,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Flowing Particle Wave -->
+    <!-- Motion Transition 1: Sine Particle Flow -->
     <div class="wave-transition-wrap" aria-hidden="true">
-      <canvas class="wave-divider-canvas w-full h-full"></canvas>
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="sine"></canvas>
     </div>
 
     <!-- ==========================================
@@ -539,25 +476,22 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Animated Horizon Light Sweep -->
-    <div class="horizon-divider" aria-hidden="true">
-      <div class="horizon-aura"></div>
-      <div class="horizon-track">
-        <div class="horizon-runner"></div>
-      </div>
+    <!-- Motion Transition 2: Intertwined Double Helix Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="helix"></canvas>
     </div>
 
     <!-- ==========================================
-         BLOCO 4: PARA QUEM É (SEÇÃO DO RAIO AMPLIADA)
+         BLOCO 4: PARA QUEM É
          ========================================== -->
-    <section class="min-h-[90vh] flex items-center py-24 md:py-32 relative">
+    <section class="min-h-[92vh] flex items-center py-28 md:py-36 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
-          <!-- Floating 3D Particle Lightning (Expanded 6-cols & Taller Canvas) -->
+          <!-- Floating 3D Particle Lightning (Crisp, Unclipped, Full Bolt) -->
           <div class="lg:col-span-6 order-2 lg:order-1 relative">
-            <div class="absolute inset-0 bg-bordo/15 rounded-full blur-3xl pointer-events-none"></div>
-            <div id="lightning-pro-container" class="w-full h-[460px] md:h-[540px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
+            <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div id="lightning-pro-container" class="w-full h-[480px] md:h-[520px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
           </div>
 
           <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
@@ -612,9 +546,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Flowing Particle Wave -->
+    <!-- Motion Transition 3: Constellation Mesh Stream -->
     <div class="wave-transition-wrap" aria-hidden="true">
-      <canvas class="wave-divider-canvas w-full h-full"></canvas>
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="constellation"></canvas>
     </div>
 
     <!-- ==========================================
@@ -700,12 +634,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Animated Horizon Light Sweep -->
-    <div class="horizon-divider" aria-hidden="true">
-      <div class="horizon-aura"></div>
-      <div class="horizon-track">
-        <div class="horizon-runner reverse"></div>
-      </div>
+    <!-- Motion Transition 4: Multi-Harmonic Frequency Pulse -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="pulse"></canvas>
     </div>
 
     <!-- ==========================================
@@ -822,9 +753,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Flowing Particle Wave -->
+    <!-- Motion Transition 5: Sine Particle Flow -->
     <div class="wave-transition-wrap" aria-hidden="true">
-      <canvas class="wave-divider-canvas w-full h-full"></canvas>
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="sine"></canvas>
     </div>
 
     <!-- ==========================================
@@ -915,12 +846,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Animated Horizon Light Sweep -->
-    <div class="horizon-divider" aria-hidden="true">
-      <div class="horizon-aura"></div>
-      <div class="horizon-track">
-        <div class="horizon-runner"></div>
-      </div>
+    <!-- Motion Transition 6: Intertwined Double Helix Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="helix"></canvas>
     </div>
 
     <!-- ==========================================
@@ -952,9 +880,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Flowing Particle Wave -->
+    <!-- Motion Transition 7: Constellation Mesh Stream -->
     <div class="wave-transition-wrap" aria-hidden="true">
-      <canvas class="wave-divider-canvas w-full h-full"></canvas>
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="constellation"></canvas>
     </div>
 
     <!-- ==========================================
@@ -1030,12 +958,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Animated Horizon Light Sweep -->
-    <div class="horizon-divider" aria-hidden="true">
-      <div class="horizon-aura"></div>
-      <div class="horizon-track">
-        <div class="horizon-runner reverse"></div>
-      </div>
+    <!-- Motion Transition 8: Multi-Harmonic Frequency Pulse -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="pulse"></canvas>
     </div>
 
     <!-- ==========================================
@@ -1089,9 +1014,9 @@
       </div>
     </section>
 
-    <!-- Motion Transition: Flowing Particle Wave -->
+    <!-- Motion Transition 9: Intertwined Double Helix Wave -->
     <div class="wave-transition-wrap" aria-hidden="true">
-      <canvas class="wave-divider-canvas w-full h-full"></canvas>
+      <canvas class="wave-divider-canvas w-full h-full" data-mode="helix"></canvas>
     </div>
 
     <!-- ==========================================
@@ -1171,7 +1096,7 @@
   </footer>
 
   <!-- ==========================================
-       SCRIPTS: UI, VIDEO OVERLAY, TIMELINE, TYPEWRITER & MOTION DIVIDERS
+       SCRIPTS: UI, VIDEO OVERLAY, TIMELINE, TYPEWRITER & MULTI-MODE WAVE DIVIDERS
        ========================================== -->
   <script>
     // Mobile Menu
@@ -1346,7 +1271,7 @@
       draw();
     })();
 
-    // Flowing Particle Wave Dividers (Motion Transitions Between Sections)
+    // Multi-Mode Particle Wave Dividers (4 Pattern-Breaking Variations)
     (function initWaveDividers() {
       const canvases = document.querySelectorAll('.wave-divider-canvas');
       if (!canvases.length) return;
@@ -1360,6 +1285,7 @@
       }, { passive: true });
 
       canvases.forEach((canvas, idx) => {
+        const mode = canvas.dataset.mode || 'sine';
         const ctx = canvas.getContext('2d');
         let w, h;
         function resize() {
@@ -1369,61 +1295,133 @@
         window.addEventListener('resize', resize);
         resize();
 
-        const dots = Array.from({ length: 65 }, (_, i) => ({
-          x: (i / 65) * w,
-          speed: (0.45 + Math.random() * 0.55) * (idx % 2 === 0 ? 1 : -1),
-          amp: 8 + Math.random() * 12,
-          freq: 0.008 + Math.random() * 0.006,
+        const dotCount = mode === 'constellation' ? 42 : 70;
+        const dots = Array.from({ length: dotCount }, (_, i) => ({
+          x: (i / dotCount) * w,
+          speed: (0.4 + Math.random() * 0.6) * (idx % 2 === 0 ? 1 : -1),
+          amp: 9 + Math.random() * 14,
+          freq: 0.007 + Math.random() * 0.006,
           phase: Math.random() * Math.PI * 2,
-          size: 0.9 + Math.random() * 1.4,
-          isBordo: Math.random() > 0.35
+          size: 0.9 + Math.random() * 1.5,
+          isBordo: Math.random() > 0.35,
+          strand: i % 2 === 0 ? 1 : -1
         }));
 
-        let t = idx * 10;
+        let t = idx * 12;
         function renderWave() {
           ctx.clearRect(0, 0, w, h);
-          t += 0.025 + scrollVelocity * 0.02;
-          scrollVelocity *= 0.95;
+          t += 0.024 + scrollVelocity * 0.02;
 
           const cy = h / 2;
-          // Draw soft sine wave thread
-          ctx.beginPath();
-          for (let x = 0; x <= w; x += 12) {
-            const fade = Math.sin((x / w) * Math.PI);
-            const y = cy + Math.sin(x * 0.009 + t) * 9 * fade;
-            if (x === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-          }
           const grad = ctx.createLinearGradient(0, 0, w, 0);
           grad.addColorStop(0, 'rgba(129, 42, 79, 0)');
-          grad.addColorStop(0.5, 'rgba(168, 66, 109, 0.25)');
+          grad.addColorStop(0.5, 'rgba(168, 66, 109, 0.28)');
           grad.addColorStop(1, 'rgba(129, 42, 79, 0)');
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 1;
-          ctx.stroke();
 
-          // Draw flowing energy particles along wave
+          if (mode === 'sine') {
+            // Mode 1: Single Smooth Sine Wave + Flowing Particles
+            ctx.beginPath();
+            for (let x = 0; x <= w; x += 10) {
+              const fade = Math.sin((x / w) * Math.PI);
+              const y = cy + Math.sin(x * 0.009 + t) * 10 * fade;
+              if (x === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+          } else if (mode === 'helix') {
+            // Mode 2: Double Intertwined DNA Helix Waves (Bordo + Creme)
+            for (let s = -1; s <= 1; s += 2) {
+              ctx.beginPath();
+              for (let x = 0; x <= w; x += 10) {
+                const fade = Math.sin((x / w) * Math.PI);
+                const y = cy + Math.sin(x * 0.011 + t * s) * 12 * fade * s;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+              }
+              const hGrad = ctx.createLinearGradient(0, 0, w, 0);
+              hGrad.addColorStop(0, 'rgba(129, 42, 79, 0)');
+              hGrad.addColorStop(0.5, s === 1 ? 'rgba(168, 66, 109, 0.32)' : 'rgba(245, 243, 239, 0.16)');
+              hGrad.addColorStop(1, 'rgba(129, 42, 79, 0)');
+              ctx.strokeStyle = hGrad;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+
+          } else if (mode === 'pulse') {
+            // Mode 3: Multi-Harmonic Frequency Ripples (3 layered micro-waves)
+            [0.6, 1.0, 1.45].forEach((mult, mIdx) => {
+              ctx.beginPath();
+              for (let x = 0; x <= w; x += 10) {
+                const fade = Math.pow(Math.sin((x / w) * Math.PI), 1.4);
+                const y = cy + (Math.sin(x * 0.01 * mult - t * mult) * 8 + Math.cos(x * 0.022 + t) * 4) * fade;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+              }
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = mIdx === 1 ? 1.1 : 0.6;
+              ctx.stroke();
+            });
+          }
+
+          // Update & Draw Particles for all modes
+          const positions = [];
           for (let i = 0; i < dots.length; i++) {
             const d = dots[i];
-            d.x += d.speed * (1 + scrollVelocity);
+            d.x += d.speed * (1 + scrollVelocity * 0.8);
             if (d.x > w) d.x = 0;
             if (d.x < 0) d.x = w;
 
             const edgeFade = Math.sin((d.x / w) * Math.PI);
-            const y = cy + Math.sin(d.x * d.freq + t + d.phase) * d.amp * edgeFade;
+            let y;
+            if (mode === 'helix') {
+              y = cy + Math.sin(d.x * 0.011 + t * d.strand + d.phase * 0.3) * d.amp * edgeFade * d.strand;
+            } else {
+              y = cy + Math.sin(d.x * d.freq + t + d.phase) * d.amp * edgeFade;
+            }
+
+            positions.push({ x: d.x, y, fade: edgeFade });
 
             ctx.beginPath();
             ctx.arc(d.x, y, d.size, 0, Math.PI * 2);
             ctx.fillStyle = d.isBordo
-              ? `rgba(194, 82, 129, ${0.75 * edgeFade})`
+              ? `rgba(194, 82, 129, ${0.8 * edgeFade})`
               : `rgba(245, 243, 239, ${0.55 * edgeFade})`;
             ctx.fill();
+          }
+
+          // Mode 4: Constellation Mesh Connections between flowing wave nodes
+          if (mode === 'constellation') {
+            for (let i = 0; i < positions.length; i++) {
+              for (let j = i + 1; j < positions.length; j++) {
+                const p1 = positions[i];
+                const p2 = positions[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 75) {
+                  const alpha = (1 - dist / 75) * 0.28 * Math.min(p1.fade, p2.fade);
+                  ctx.beginPath();
+                  ctx.moveTo(p1.x, p1.y);
+                  ctx.lineTo(p2.x, p2.y);
+                  ctx.strokeStyle = `rgba(168, 66, 109, ${alpha})`;
+                  ctx.lineWidth = 0.75;
+                  ctx.stroke();
+                }
+              }
+            }
           }
 
           requestAnimationFrame(renderWave);
         }
         renderWave();
       });
+
+      setInterval(() => {
+        scrollVelocity *= 0.9;
+      }, 50);
     })();
   </script>
 
@@ -1431,8 +1429,7 @@
   <script type="module">
     import * as THREE from 'three';
 
-    const colorVinho = new THREE.Color(0xA8426D);
-    const colorBordoDeep = new THREE.Color(0x812A4F);
+    const colorVinho = new THREE.Color(0x812A4F);
     const colorCreme = new THREE.Color(0xF5F3EF);
 
     // ==========================================
@@ -1454,28 +1451,28 @@
       scene.add(chartGroup);
 
       const data = [0.4, 0.25, 0.2, 0.15];
-      const radius = 86;
+      const radius = 84;
       let startAngle = 0;
       const sectorMeshes = [];
 
       data.forEach((value, i) => {
         const endAngle = startAngle + (value * Math.PI * 2);
-        const sectorColor = colorBordoDeep.clone().lerp(colorCreme, i / (data.length - 1));
-        const particleCount = Math.floor(8500 * value);
+        const sectorColor = colorVinho.clone().lerp(colorCreme, i / (data.length - 1));
+        const particleCount = Math.floor(8000 * value);
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
 
         for (let j = 0; j < particleCount; j++) {
           const angle = startAngle + Math.random() * (endAngle - startAngle);
           const r = Math.sqrt(Math.random()) * radius;
-          const z = (Math.random() - 0.5) * 18;
-          const jitter = (Math.random() - 0.5) * 2.2;
+          const z = (Math.random() - 0.5) * 16;
+          const jitter = (Math.random() - 0.5) * 2;
 
           positions[j * 3] = (r + jitter) * Math.cos(angle);
           positions[j * 3 + 1] = (r + jitter) * Math.sin(angle);
           positions[j * 3 + 2] = z;
 
-          const pColor = sectorColor.clone().lerp(colorCreme, Math.random() * 0.35);
+          const pColor = sectorColor.clone().lerp(colorCreme, Math.random() * 0.3);
           colors[j * 3] = pColor.r;
           colors[j * 3 + 1] = pColor.g;
           colors[j * 3 + 2] = pColor.b;
@@ -1486,18 +1483,18 @@
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const material = new THREE.PointsMaterial({
-          size: 1.35,
+          size: 1.25,
           vertexColors: true,
           transparent: true,
-          opacity: 0.9,
+          opacity: 0.85,
           blending: THREE.AdditiveBlending
         });
 
         const sectorPoints = new THREE.Points(geometry, material);
         const midAngle = (startAngle + endAngle) / 2;
-        sectorPoints.userData = { midAngle, baseOffset: 6 };
-        sectorPoints.position.x = Math.cos(midAngle) * 6;
-        sectorPoints.position.y = Math.sin(midAngle) * 6;
+        sectorPoints.userData = { midAngle, baseOffset: 5.5 };
+        sectorPoints.position.x = Math.cos(midAngle) * 5.5;
+        sectorPoints.position.y = Math.sin(midAngle) * 5.5;
 
         chartGroup.add(sectorPoints);
         sectorMeshes.push(sectorPoints);
@@ -1526,12 +1523,12 @@
       function animatePie() {
         requestAnimationFrame(animatePie);
         const t = Date.now() * 0.001;
-        chartGroup.rotation.z += 0.0035;
+        chartGroup.rotation.z += 0.003;
         chartGroup.rotation.x += (pieTargetX + Math.sin(t * 0.7) * 0.18 - chartGroup.rotation.x) * 0.06;
         chartGroup.rotation.y += (pieTargetY + Math.cos(t * 0.7) * 0.18 - chartGroup.rotation.y) * 0.06;
 
         sectorMeshes.forEach((mesh, idx) => {
-          const pulse = mesh.userData.baseOffset + Math.sin(t * 2.2 + idx) * 2.5 + pieHoverBoost * 4.5;
+          const pulse = mesh.userData.baseOffset + Math.sin(t * 2.2 + idx) * 2.0 + pieHoverBoost * 4.0;
           mesh.position.x += (Math.cos(mesh.userData.midAngle) * pulse - mesh.position.x) * 0.08;
           mesh.position.y += (Math.sin(mesh.userData.midAngle) * pulse - mesh.position.y) * 0.08;
         });
@@ -1549,13 +1546,13 @@
     }
 
     // ==========================================
-    // 2. LIGHTNING 3D (Larger Scale, Interactive & Stronger Animation)
+    // 2. LIGHTNING 3D (Original Crisp Geometry, Unclipped & Mouse-Interactive)
     // ==========================================
     const lightningContainer = document.getElementById('lightning-pro-container');
     if (lightningContainer) {
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(65, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
-      camera.position.z = 152;
+      const camera = new THREE.PerspectiveCamera(75, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
+      camera.position.z = 190;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1566,17 +1563,18 @@
       const lightningGroup = new THREE.Group();
       scene.add(lightningGroup);
 
+      // Exact original zig-zag lightning structure
       const mainPoints = [
-        new THREE.Vector3(6, 106, 0),
-        new THREE.Vector3(-34, 60, 4),
-        new THREE.Vector3(24, 20, -4),
-        new THREE.Vector3(-42, -22, 4),
-        new THREE.Vector3(16, -62, -4),
-        new THREE.Vector3(-12, -106, 0)
+        new THREE.Vector3(0, 100, 0),
+        new THREE.Vector3(-30, 60, 0),
+        new THREE.Vector3(20, 20, 0),
+        new THREE.Vector3(-40, -20, 0),
+        new THREE.Vector3(10, -60, 0),
+        new THREE.Vector3(-10, -100, 0)
       ];
 
       const curve = new THREE.CatmullRomCurve3(mainPoints, false, 'catmullrom', 0.1);
-      const curvePoints = curve.getPoints(230);
+      const curvePoints = curve.getPoints(200);
       const positions = [];
       const colors = [];
 
@@ -1584,19 +1582,19 @@
         const progress = index / curvePoints.length;
         const baseColor = colorCreme.clone().lerp(colorVinho, progress);
 
-        // Dense bright core
-        for (let i = 0; i < 55; i++) {
+        // 1. Core (dense & bright)
+        for (let i = 0; i < 50; i++) {
           positions.push(
-            p.x + (Math.random() - 0.5) * 3.8,
-            p.y + (Math.random() - 0.5) * 3.8,
-            p.z + (Math.random() - 0.5) * 3.8
+            p.x + (Math.random() - 0.5) * 3,
+            p.y + (Math.random() - 0.5) * 3,
+            p.z + (Math.random() - 0.5) * 3
           );
           colors.push(colorCreme.r, colorCreme.g, colorCreme.b);
         }
 
-        // Wide energy aura
-        for (let i = 0; i < 140; i++) {
-          const spread = 20 + Math.random() * 18;
+        // 2. Energy aura
+        for (let i = 0; i < 120; i++) {
+          const spread = 15 + Math.random() * 10;
           positions.push(
             p.x + (Math.random() - 0.5) * spread,
             p.y + (Math.random() - 0.5) * spread,
@@ -1605,14 +1603,12 @@
           colors.push(baseColor.r, baseColor.g, baseColor.b);
         }
 
-        // Branch sparks
-        if (index % 32 === 0 && index > 0) {
-          for (let i = 0; i < 380; i++) {
-            positions.push(
-              p.x + (Math.random() - 0.5) * 68,
-              p.y + (Math.random() - 0.5) * 26,
-              (Math.random() - 0.5) * 40
-            );
+        // 3. Random sparks
+        if (index % 40 === 0 && index > 0) {
+          for (let i = 0; i < 500; i++) {
+            const branchX = p.x + (Math.random() - 0.5) * 60;
+            const branchY = p.y + (Math.random() - 0.5) * 20;
+            positions.push(branchX, branchY, (Math.random() - 0.5) * 30);
             colors.push(colorVinho.r, colorVinho.g, colorVinho.b);
           }
         }
@@ -1623,10 +1619,10 @@
       geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 1.35,
+        size: 1.1,
         vertexColors: true,
         transparent: true,
-        opacity: 0.88,
+        opacity: 0.7,
         blending: THREE.AdditiveBlending
       });
 
@@ -1639,8 +1635,8 @@
         const rect = lightningContainer.getBoundingClientRect();
         const relX = (event.clientX - rect.left) / rect.width;
         const relY = (event.clientY - rect.top) / rect.height;
-        lightTargetY = (relX - 0.5) * Math.PI * 1.05;
-        lightTargetX = (relY - 0.5) * Math.PI * 0.85;
+        lightTargetY = (relX - 0.5) * Math.PI * 0.9;
+        lightTargetX = (relY - 0.5) * Math.PI * 0.6;
       });
 
       lightningContainer.addEventListener('mouseleave', () => {
@@ -1650,11 +1646,9 @@
 
       function animateLightning() {
         requestAnimationFrame(animateLightning);
-        const t = Date.now() * 0.001;
-        lightningGroup.rotation.y += (lightTargetY + Math.sin(t * 0.9) * 0.28 - lightningGroup.rotation.y) * 0.06;
-        lightningGroup.rotation.x += (lightTargetX + Math.cos(t * 0.6) * 0.14 - lightningGroup.rotation.x) * 0.06;
-        const scale = 1 + Math.sin(t * 2.5) * 0.03;
-        lightningGroup.scale.set(scale, scale, scale);
+        const t = Date.now() * 0.0006;
+        lightningGroup.rotation.y += (lightTargetY + Math.sin(t) * 0.18 - lightningGroup.rotation.y) * 0.05;
+        lightningGroup.rotation.x += (lightTargetX - lightningGroup.rotation.x) * 0.05;
         renderer.render(scene, camera);
       }
       animateLightning();
@@ -1674,7 +1668,7 @@
     if (vortexContainer) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(68, vortexContainer.clientWidth / vortexContainer.clientHeight, 0.1, 1000);
-      camera.position.set(0, 0, 270);
+      camera.position.set(0, 0, 275);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1695,7 +1689,7 @@
         positions[i * 3 + 1] = (Math.random() - 0.5) * 190;
         positions[i * 3 + 2] = radius * Math.sin(angle);
 
-        const mixedColor = colorBordoDeep.clone().lerp(colorCreme, Math.random());
+        const mixedColor = colorVinho.clone().lerp(colorCreme, Math.random());
         colors[i * 3] = mixedColor.r;
         colors[i * 3 + 1] = mixedColor.g;
         colors[i * 3 + 2] = mixedColor.b;
@@ -1705,10 +1699,10 @@
       geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 1.05,
+        size: 1.0,
         vertexColors: true,
         transparent: true,
-        opacity: 0.9,
+        opacity: 0.88,
         blending: THREE.AdditiveBlending,
         sizeAttenuation: true
       });
@@ -1729,7 +1723,7 @@
 
       function animateVortex() {
         requestAnimationFrame(animateVortex);
-        particleSystem.rotation.y += 0.0035 + (targetRotationY - particleSystem.rotation.y) * 0.05;
+        particleSystem.rotation.y += 0.003 + (targetRotationY - particleSystem.rotation.y) * 0.05;
         particleSystem.rotation.x += (targetRotationX - particleSystem.rotation.x) * 0.05;
         renderer.render(scene, camera);
       }
