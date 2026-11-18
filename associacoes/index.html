@@ -103,26 +103,26 @@
 
     /* Architectural Tech Grid Texture */
     .bg-luxury-grid {
-      background-size: 44px 44px;
+      background-size: 48px 48px;
       background-image:
-        linear-gradient(to right, rgba(245, 243, 239, 0.028) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(245, 243, 239, 0.028) 1px, transparent 1px);
+        linear-gradient(to right, rgba(245, 243, 239, 0.022) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 243, 239, 0.022) 1px, transparent 1px);
     }
 
-    /* Micro Dot Matrix Texture for Sections */
+    /* Micro Dot Matrix Texture */
     .bg-dot-matrix {
-      background-image: radial-gradient(rgba(168, 66, 109, 0.16) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(168, 66, 109, 0.14) 1px, transparent 1px);
       background-size: 24px 24px;
     }
 
     /* Subtle Film Grain Texture */
     .bg-noise {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.032'/%3E%3C/svg%3E");
     }
 
     /* Glassmorphic Luxury Card */
     .glass-card {
-      background: linear-gradient(145deg, rgba(23, 22, 30, 0.78) 0%, rgba(13, 13, 18, 0.88) 100%);
+      background: linear-gradient(145deg, rgba(23, 22, 30, 0.72) 0%, rgba(13, 13, 18, 0.85) 100%);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(245, 243, 239, 0.075);
@@ -139,6 +139,39 @@
     .pain-card.selected {
       border-color: rgba(168, 66, 109, 0.6);
       background: linear-gradient(145deg, rgba(129, 42, 79, 0.22) 0%, rgba(18, 17, 24, 0.92) 100%);
+    }
+
+    /* Section Transition Elements */
+    .section-transition {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+      pointer-events: none;
+    }
+
+    .section-transition-line {
+      width: 1px;
+      height: 64px;
+      background: linear-gradient(to bottom, transparent, rgba(168, 66, 109, 0.45), transparent);
+    }
+
+    .section-transition-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 9999px;
+      background-color: #A8426D;
+      box-shadow: 0 0 14px 2px rgba(168, 66, 109, 0.75);
+    }
+
+    .section-fade-beam {
+      width: 100%;
+      max-width: 680px;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent 0%, rgba(245, 243, 239, 0.06) 20%, rgba(168, 66, 109, 0.38) 50%, rgba(245, 243, 239, 0.06) 80%, transparent 100%);
     }
 
     /* Buttons */
@@ -257,7 +290,7 @@
   <!-- ==========================================
        BLOCO 1: MENU
        ========================================== -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/75 backdrop-blur-xl border-b border-creme/[0.06]">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/75 backdrop-blur-xl border-b border-creme/[0.05]">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Brand Logo -->
       <a href="#inicio" class="flex items-center gap-2.5 group">
@@ -312,11 +345,11 @@
     <!-- ==========================================
          BLOCO 2: HERO (VÍDEO OCULTO NESTA PÁGINA)
          ========================================== -->
-    <section id="inicio" class="relative pt-28 pb-20 md:pt-36 md:pb-24 overflow-hidden">
+    <section id="inicio" class="relative min-h-[85vh] flex items-center pt-28 pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <!-- Interactive Background Particle Constellation -->
-      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-60"></canvas>
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-65"></canvas>
 
-      <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="max-w-5xl mx-auto px-6 w-full relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <!-- Left Copy -->
@@ -358,12 +391,19 @@
       </div>
     </section>
 
+    <!-- Transition Connector -->
+    <div class="section-transition" aria-hidden="true">
+      <div class="section-transition-line"></div>
+      <div class="section-transition-dot"></div>
+      <div class="section-transition-line"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 3: APRESENTAÇÃO
          ========================================== -->
-    <section class="py-16 md:py-24 border-t border-creme/[0.06] relative">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
           <div class="lg:col-span-6 space-y-5">
             <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
@@ -414,29 +454,32 @@
             </div>
           </div>
 
-          <!-- Framed 3D Particle Pie Chart -->
-          <div class="lg:col-span-6">
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
-              <div id="pie-chart-container" class="w-full h-[350px] md:h-[380px] relative overflow-hidden"></div>
-            </div>
+          <!-- Floating 3D Particle Pie Chart (No Gray Box) -->
+          <div class="lg:col-span-6 relative">
+            <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div id="pie-chart-container" class="w-full h-[380px] md:h-[440px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
           </div>
 
         </div>
       </div>
     </section>
 
+    <!-- Soft Radial Beam Transition -->
+    <div class="py-4" aria-hidden="true">
+      <div class="section-fade-beam"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 4: PARA QUEM É
          ========================================== -->
-    <section class="py-16 md:py-24 border-t border-creme/[0.06] relative">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
-          <!-- Framed 3D Particle Lightning -->
-          <div class="lg:col-span-5 order-2 lg:order-1">
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
-              <div id="lightning-pro-container" class="w-full h-[350px] md:h-[380px] relative overflow-hidden"></div>
-            </div>
+          <!-- Floating 3D Particle Lightning (No Gray Box) -->
+          <div class="lg:col-span-5 order-2 lg:order-1 relative">
+            <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div id="lightning-pro-container" class="w-full h-[380px] md:h-[440px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
           </div>
 
           <div class="lg:col-span-7 space-y-5 order-1 lg:order-2">
@@ -491,12 +534,19 @@
       </div>
     </section>
 
+    <!-- Transition Connector -->
+    <div class="section-transition" aria-hidden="true">
+      <div class="section-transition-line"></div>
+      <div class="section-transition-dot"></div>
+      <div class="section-transition-line"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 5: DIAGNÓSTICO
          ========================================== -->
-    <section id="diagnostico" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+    <section id="diagnostico" class="min-h-[85vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
           <div class="lg:col-span-6 space-y-5">
             <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
@@ -564,24 +614,30 @@
             </div>
           </div>
 
-          <!-- Framed 3D Particle Vortex -->
-          <div class="lg:col-span-6">
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden bg-dot-matrix">
-              <div id="diagnostic-3d-container" class="w-full h-[360px] md:h-[400px] flex justify-center items-center overflow-hidden relative cursor-move"></div>
-            </div>
+          <!-- Floating 3D Particle Vortex (No Gray Box) -->
+          <div class="lg:col-span-6 relative">
+            <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div id="diagnostic-3d-container" class="w-full h-[380px] md:h-[440px] flex justify-center items-center overflow-hidden relative cursor-grab active:cursor-grabbing"></div>
           </div>
 
         </div>
       </div>
     </section>
 
+    <!-- Transition Connector Linking into Process Timeline -->
+    <div class="section-transition" aria-hidden="true">
+      <div class="section-transition-line"></div>
+      <div class="section-transition-dot"></div>
+      <div class="section-transition-line"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 6: PROCESSO (COMO TRABALHAMOS)
          ========================================== -->
-    <section id="processo" class="py-16 md:py-24 border-t border-creme/[0.06] relative">
+    <section id="processo" class="py-20 md:py-28 relative">
       <div class="max-w-4xl mx-auto px-6">
         
-        <div class="text-center mb-14 reveal-on-scroll">
+        <div class="text-center mb-16 reveal-on-scroll">
           <h3 class="font-display font-normal text-2xl sm:text-3xl text-creme">
             Como trabalhamos
           </h3>
@@ -592,9 +648,9 @@
 
         <div class="relative">
           <!-- Glowing Gradient Line -->
-          <div class="absolute top-0 w-px h-full bg-gradient-to-b from-bordo via-bordo-soft/50 to-creme/10 left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
+          <div class="absolute top-0 w-px h-full bg-gradient-to-b from-bordo via-bordo-soft/50 to-transparent left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
 
-          <div id="timeline-container" class="space-y-8 md:space-y-10">
+          <div id="timeline-container" class="space-y-8 md:space-y-11">
 
             <!-- 01 -->
             <div class="timeline-item active reveal-on-scroll relative">
@@ -679,7 +735,7 @@
           </div>
         </div>
 
-        <div class="flex justify-center mt-12">
+        <div class="flex justify-center mt-14">
           <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
              class="btn-bordo inline-flex items-center px-7 py-3 rounded-full font-display font-normal text-xs tracking-wider text-center shadow-bordo-sm">
             Conversar com a Highlight
@@ -689,13 +745,18 @@
       </div>
     </section>
 
+    <!-- Soft Radial Beam Transition -->
+    <div class="py-4" aria-hidden="true">
+      <div class="section-fade-beam"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 7: TIME TERCEIRIZADO (SEM × COM)
          ========================================== -->
-    <section class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
-      <div class="max-w-5xl mx-auto px-6">
+    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
         
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3.5 reveal-on-scroll">
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3.5 reveal-on-scroll">
           <p class="font-display italic font-light text-base sm:text-lg text-bordo-soft">
             Um departamento de comunicação, sem precisar montar um
           </p>
@@ -767,7 +828,7 @@
 
         </div>
 
-        <div class="flex justify-center mt-10">
+        <div class="flex justify-center mt-12">
           <a href="https://cal.com/luandahighlight" target="_blank" rel="noopener noreferrer"
              class="btn-bordo inline-flex items-center px-7 py-3 rounded-full font-display font-normal text-xs tracking-wider shadow-bordo-sm">
             Fale com a Highlight
@@ -777,25 +838,36 @@
       </div>
     </section>
 
-    <!-- ==========================================
-         BLOCO 8: TYPEWRITER (ANIMADO)
-         ========================================== -->
-    <section class="py-16 md:py-20 border-t border-creme/[0.06] relative">
-      <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
-        <div class="glass-card rounded-2xl py-12 px-6 text-center relative overflow-hidden bg-dot-matrix">
-          <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-bordo/25 blur-3xl pointer-events-none"></div>
+    <!-- Transition Connector -->
+    <div class="section-transition" aria-hidden="true">
+      <div class="section-transition-line"></div>
+      <div class="section-transition-dot"></div>
+      <div class="section-transition-line"></div>
+    </div>
 
-          <h3 class="font-display font-normal text-lg sm:text-xl text-bordo-soft mb-2 relative z-10">
+    <!-- ==========================================
+         BLOCO 8: TYPEWRITER (ANIMADO — EXPANDIDO VERTICALMENTE)
+         ========================================== -->
+    <section class="min-h-[68vh] flex items-center py-24 md:py-32 relative">
+      <div class="max-w-4xl mx-auto px-6 w-full reveal-on-scroll">
+        <div class="glass-card rounded-3xl py-20 sm:py-24 px-8 sm:px-14 text-center relative overflow-hidden bg-dot-matrix border border-bordo-soft/30 shadow-bordo-sm">
+          <!-- Ambient Halo Inside Card -->
+          <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-52 bg-bordo/30 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[360px] h-44 bg-verde/25 blur-3xl pointer-events-none"></div>
+
+          <h3 class="font-display font-normal text-xl sm:text-2xl text-bordo-soft mb-4 relative z-10">
             Rotina + Eventos + Benefícios =
           </h3>
-          <p class="font-display font-normal text-xl sm:text-2xl text-creme h-9 flex items-center justify-center relative z-10">
+          <p class="font-display font-normal text-2xl sm:text-4xl text-creme min-h-[3.25rem] flex items-center justify-center relative z-10">
             <span id="tw-more" class="typewriter-cursor"></span>
           </p>
 
-          <h3 class="font-display font-normal text-lg sm:text-xl text-bordo-soft mt-8 mb-2 relative z-10">
+          <div class="w-16 h-px bg-gradient-to-r from-transparent via-bordo-soft/50 to-transparent mx-auto my-8 relative z-10"></div>
+
+          <h3 class="font-display font-normal text-xl sm:text-2xl text-bordo-soft mb-4 relative z-10">
             e, com o tempo...
           </h3>
-          <p class="font-display font-light text-xl sm:text-2xl text-creme/70 h-9 flex items-center justify-center relative z-10">
+          <p class="font-display font-light text-2xl sm:text-4xl text-creme/75 min-h-[3.25rem] flex items-center justify-center relative z-10">
             <span id="tw-less" class="typewriter-cursor"></span>
           </p>
         </div>
@@ -806,10 +878,10 @@
          BLOCO 9: RESULTADOS (OCULTO CONFORME ESPECIFICAÇÃO)
          ========================================== -->
     <!--
-    <section id="resultados" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
-      <div class="max-w-5xl mx-auto px-6">
+    <section id="resultados" class="min-h-[78vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
         
-        <div class="text-center mb-12 reveal-on-scroll space-y-2">
+        <div class="text-center mb-14 reveal-on-scroll space-y-2">
           <h2 class="font-display italic font-normal text-2xl sm:text-3xl text-creme">
             Resultados com quem já trabalha com a Highlight
           </h2>
@@ -818,33 +890,33 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-on-scroll">
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-on-scroll">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [nº] anos cuidando da comunicação do clube
             </p>
           </div>
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [nº] eventos com cobertura completa, do convite ao pós-evento
             </p>
           </div>
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [nº] newsletters enviadas aos associados
             </p>
           </div>
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [nº] conteúdos publicados
             </p>
           </div>
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [%] de crescimento no Instagram
             </p>
           </div>
-          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between space-y-5">
             <p class="text-sm sm:text-[15px] text-creme/90 font-light leading-relaxed">
               [nº ou %] de novos associados no período
             </p>
@@ -855,11 +927,16 @@
     </section>
     -->
 
+    <!-- Soft Radial Beam Transition -->
+    <div class="py-4" aria-hidden="true">
+      <div class="section-fade-beam"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 10: CHAMADA PARA A SESSÃO ESTRATÉGICA
          ========================================== -->
-    <section id="tour-guiada" class="py-16 md:py-24 border-t border-creme/[0.06] relative">
-      <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
+    <section id="tour-guiada" class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-4xl mx-auto px-6 w-full reveal-on-scroll">
         <div class="glass-card rounded-2xl p-8 sm:p-12 border border-bordo-soft/40 bg-gradient-to-br from-bordo/[0.18] via-obsidian-card to-obsidian-surface relative overflow-hidden shadow-bordo-sm">
           <div class="absolute -right-24 -bottom-24 w-80 h-80 bg-bordo/25 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -906,12 +983,19 @@
       </div>
     </section>
 
+    <!-- Transition Connector -->
+    <div class="section-transition" aria-hidden="true">
+      <div class="section-transition-line"></div>
+      <div class="section-transition-dot"></div>
+      <div class="section-transition-line"></div>
+    </div>
+
     <!-- ==========================================
          BLOCO 11: SOBRE O FUNDADOR
          ========================================== -->
-    <section id="founder" class="py-16 md:py-24 border-t border-creme/[0.06] bg-obsidian-surface/35 relative">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-on-scroll">
+    <section id="founder" class="min-h-[80vh] flex items-center py-20 md:py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
           <div class="lg:col-span-7 space-y-5">
             <p class="text-xs uppercase tracking-[0.18em] text-bordo-soft font-normal">
@@ -1084,14 +1168,15 @@
 
     // Hero Background Constellation Canvas
     (function initHeroCanvas() {
-      const canvas = document.getElementById('hero-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+      const canvas = document.getById ? document.getElementById('hero-canvas') : null;
+      const c = document.getElementById('hero-canvas');
+      if (!c) return;
+      const ctx = c.getContext('2d');
       let w, h;
 
       function resize() {
-        w = canvas.width = canvas.offsetWidth;
-        h = canvas.height = canvas.offsetHeight;
+        w = c.width = c.offsetWidth;
+        h = c.height = c.offsetHeight;
       }
       window.addEventListener('resize', resize);
       resize();
@@ -1140,19 +1225,20 @@
     })();
   </script>
 
-  <!-- Three.js Visualizations (Pie Chart, Lightning, Vortex) -->
+  <!-- Three.js Visualizations (Interactive Mouse-Responsive Pie Chart, Lightning & Vortex) -->
   <script type="module">
     import * as THREE from 'three';
 
-    const colorVinho = new THREE.Color(0x812A4F);
+    const colorVinho = new THREE.Color(0xA8426D);
+    const colorBordoDeep = new THREE.Color(0x812A4F);
     const colorCreme = new THREE.Color(0xF5F3EF);
 
     // 1. Pie Chart 3D
     const pieContainer = document.getElementById('pie-chart-container');
     if (pieContainer) {
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, pieContainer.clientWidth / pieContainer.clientHeight, 0.1, 1000);
-      camera.position.z = 205;
+      const camera = new THREE.PerspectiveCamera(65, pieContainer.clientWidth / pieContainer.clientHeight, 0.1, 1000);
+      camera.position.z = 195;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1164,27 +1250,28 @@
       scene.add(chartGroup);
 
       const data = [0.4, 0.25, 0.2, 0.15];
-      const radius = 78;
+      const radius = 84;
       let startAngle = 0;
+      const sectorMeshes = [];
 
       data.forEach((value, i) => {
         const endAngle = startAngle + (value * Math.PI * 2);
-        const sectorColor = colorVinho.clone().lerp(colorCreme, i / (data.length - 1));
-        const particleCount = Math.floor(6500 * value);
+        const sectorColor = colorBordoDeep.clone().lerp(colorCreme, i / (data.length - 1));
+        const particleCount = Math.floor(8500 * value);
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
 
         for (let j = 0; j < particleCount; j++) {
           const angle = startAngle + Math.random() * (endAngle - startAngle);
           const r = Math.sqrt(Math.random()) * radius;
-          const z = (Math.random() - 0.5) * 14;
-          const jitter = (Math.random() - 0.5) * 2;
+          const z = (Math.random() - 0.5) * 18;
+          const jitter = (Math.random() - 0.5) * 2.2;
 
           positions[j * 3] = (r + jitter) * Math.cos(angle);
           positions[j * 3 + 1] = (r + jitter) * Math.sin(angle);
           positions[j * 3 + 2] = z;
 
-          const pColor = sectorColor.clone().lerp(colorCreme, Math.random() * 0.28);
+          const pColor = sectorColor.clone().lerp(colorCreme, Math.random() * 0.35);
           colors[j * 3] = pColor.r;
           colors[j * 3 + 1] = pColor.g;
           colors[j * 3 + 2] = pColor.b;
@@ -1195,27 +1282,56 @@
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const material = new THREE.PointsMaterial({
-          size: 1.15,
+          size: 1.35,
           vertexColors: true,
           transparent: true,
-          opacity: 0.82,
+          opacity: 0.9,
           blending: THREE.AdditiveBlending
         });
 
         const sectorPoints = new THREE.Points(geometry, material);
         const midAngle = (startAngle + endAngle) / 2;
-        sectorPoints.position.x = Math.cos(midAngle) * 5;
-        sectorPoints.position.y = Math.sin(midAngle) * 5;
+        sectorPoints.userData = { midAngle, baseOffset: 6 };
+        sectorPoints.position.x = Math.cos(midAngle) * 6;
+        sectorPoints.position.y = Math.sin(midAngle) * 6;
 
         chartGroup.add(sectorPoints);
+        sectorMeshes.push(sectorPoints);
         startAngle = endAngle;
+      });
+
+      let pieTargetX = 0.2;
+      let pieTargetY = 0;
+      let pieHoverBoost = 0;
+
+      pieContainer.addEventListener('mousemove', (event) => {
+        const rect = pieContainer.getBoundingClientRect();
+        const relX = (event.clientX - rect.left) / rect.width;
+        const relY = (event.clientY - rect.top) / rect.height;
+        pieTargetY = (relX - 0.5) * Math.PI * 0.85;
+        pieTargetX = (relY - 0.5) * Math.PI * 0.85;
+        pieHoverBoost = 1;
+      });
+
+      pieContainer.addEventListener('mouseleave', () => {
+        pieTargetX = 0.2;
+        pieTargetY = 0;
+        pieHoverBoost = 0;
       });
 
       function animatePie() {
         requestAnimationFrame(animatePie);
-        chartGroup.rotation.z += 0.002;
-        chartGroup.rotation.x = Math.sin(Date.now() * 0.0005) * 0.2;
-        chartGroup.rotation.y = Math.cos(Date.now() * 0.0005) * 0.2;
+        const t = Date.now() * 0.001;
+        chartGroup.rotation.z += 0.0035;
+        chartGroup.rotation.x += (pieTargetX + Math.sin(t * 0.7) * 0.18 - chartGroup.rotation.x) * 0.06;
+        chartGroup.rotation.y += (pieTargetY + Math.cos(t * 0.7) * 0.18 - chartGroup.rotation.y) * 0.06;
+
+        sectorMeshes.forEach((mesh, idx) => {
+          const pulse = mesh.userData.baseOffset + Math.sin(t * 2.2 + idx) * 2.5 + pieHoverBoost * 4.5;
+          mesh.position.x += (Math.cos(mesh.userData.midAngle) * pulse - mesh.position.x) * 0.08;
+          mesh.position.y += (Math.sin(mesh.userData.midAngle) * pulse - mesh.position.y) * 0.08;
+        });
+
         renderer.render(scene, camera);
       }
       animatePie();
@@ -1232,8 +1348,8 @@
     const lightningContainer = document.getElementById('lightning-pro-container');
     if (lightningContainer) {
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
-      camera.position.z = 185;
+      const camera = new THREE.PerspectiveCamera(65, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
+      camera.position.z = 180;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1245,16 +1361,16 @@
       scene.add(lightningGroup);
 
       const mainPoints = [
-        new THREE.Vector3(0, 95, 0),
-        new THREE.Vector3(-28, 55, 0),
-        new THREE.Vector3(18, 18, 0),
-        new THREE.Vector3(-36, -18, 0),
-        new THREE.Vector3(10, -55, 0),
-        new THREE.Vector3(-10, -95, 0)
+        new THREE.Vector3(0, 98, 0),
+        new THREE.Vector3(-30, 56, 0),
+        new THREE.Vector3(20, 18, 0),
+        new THREE.Vector3(-38, -20, 0),
+        new THREE.Vector3(12, -58, 0),
+        new THREE.Vector3(-10, -98, 0)
       ];
 
       const curve = new THREE.CatmullRomCurve3(mainPoints, false, 'catmullrom', 0.1);
-      const curvePoints = curve.getPoints(180);
+      const curvePoints = curve.getPoints(210);
       const positions = [];
       const colors = [];
 
@@ -1262,23 +1378,34 @@
         const progress = index / curvePoints.length;
         const baseColor = colorCreme.clone().lerp(colorVinho, progress);
 
-        for (let i = 0; i < 42; i++) {
+        for (let i = 0; i < 48; i++) {
           positions.push(
-            p.x + (Math.random() - 0.5) * 3,
-            p.y + (Math.random() - 0.5) * 3,
-            p.z + (Math.random() - 0.5) * 3
+            p.x + (Math.random() - 0.5) * 3.2,
+            p.y + (Math.random() - 0.5) * 3.2,
+            p.z + (Math.random() - 0.5) * 3.2
           );
           colors.push(colorCreme.r, colorCreme.g, colorCreme.b);
         }
 
-        for (let i = 0; i < 100; i++) {
-          const spread = 14 + Math.random() * 10;
+        for (let i = 0; i < 120; i++) {
+          const spread = 16 + Math.random() * 14;
           positions.push(
             p.x + (Math.random() - 0.5) * spread,
             p.y + (Math.random() - 0.5) * spread,
             p.z + (Math.random() - 0.5) * spread
           );
           colors.push(baseColor.r, baseColor.g, baseColor.b);
+        }
+
+        if (index % 35 === 0 && index > 0) {
+          for (let i = 0; i < 320; i++) {
+            positions.push(
+              p.x + (Math.random() - 0.5) * 55,
+              p.y + (Math.random() - 0.5) * 22,
+              (Math.random() - 0.5) * 32
+            );
+            colors.push(colorVinho.r, colorVinho.g, colorVinho.b);
+          }
         }
       });
 
@@ -1287,18 +1414,38 @@
       geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 1.05,
+        size: 1.25,
         vertexColors: true,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.85,
         blending: THREE.AdditiveBlending
       });
 
       lightningGroup.add(new THREE.Points(geometry, material));
 
+      let lightTargetX = 0;
+      let lightTargetY = 0;
+
+      lightningContainer.addEventListener('mousemove', (event) => {
+        const rect = lightningContainer.getBoundingClientRect();
+        const relX = (event.clientX - rect.left) / rect.width;
+        const relY = (event.clientY - rect.top) / rect.height;
+        lightTargetY = (relX - 0.5) * Math.PI * 0.95;
+        lightTargetX = (relY - 0.5) * Math.PI * 0.75;
+      });
+
+      lightningContainer.addEventListener('mouseleave', () => {
+        lightTargetX = 0;
+        lightTargetY = 0;
+      });
+
       function animateLightning() {
         requestAnimationFrame(animateLightning);
-        lightningGroup.rotation.y = Math.sin(Date.now() * 0.0006) * 0.16;
+        const t = Date.now() * 0.001;
+        lightningGroup.rotation.y += (lightTargetY + Math.sin(t * 0.9) * 0.25 - lightningGroup.rotation.y) * 0.06;
+        lightningGroup.rotation.x += (lightTargetX + Math.cos(t * 0.6) * 0.12 - lightningGroup.rotation.x) * 0.06;
+        const scale = 1 + Math.sin(t * 2.5) * 0.025;
+        lightningGroup.scale.set(scale, scale, scale);
         renderer.render(scene, camera);
       }
       animateLightning();
@@ -1315,28 +1462,29 @@
     const vortexContainer = document.getElementById('diagnostic-3d-container');
     if (vortexContainer) {
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, vortexContainer.clientWidth / vortexContainer.clientHeight, 0.1, 1000);
-      camera.position.set(0, 0, 285);
+      const camera = new THREE.PerspectiveCamera(68, vortexContainer.clientWidth / vortexContainer.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 275);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
       renderer.setSize(vortexContainer.clientWidth, vortexContainer.clientHeight);
       vortexContainer.appendChild(renderer.domElement);
 
-      const particleCount = 8000;
+      const particleCount = 9500;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
 
       for (let i = 0; i < particleCount; i++) {
-        const radius = 45 + Math.random() * 95;
-        const angle = (i / particleCount) * Math.PI * 10 + (Math.random() - 0.5) * 0.5;
+        const radius = 45 + Math.random() * 100;
+        const angle = (i / particleCount) * Math.PI * 12 + (Math.random() - 0.5) * 0.5;
 
         positions[i * 3] = radius * Math.cos(angle);
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 185;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 190;
         positions[i * 3 + 2] = radius * Math.sin(angle);
 
-        const mixedColor = colorVinho.clone().lerp(colorCreme, Math.random());
+        const mixedColor = colorBordoDeep.clone().lerp(colorCreme, Math.random());
         colors[i * 3] = mixedColor.r;
         colors[i * 3 + 1] = mixedColor.g;
         colors[i * 3 + 2] = mixedColor.b;
@@ -1346,29 +1494,32 @@
       geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 0.85,
+        size: 1.05,
         vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending,
         sizeAttenuation: true
       });
 
       const particleSystem = new THREE.Points(geometry, material);
       scene.add(particleSystem);
 
-      let targetRotationX = 0.15;
+      let targetRotationX = 0.18;
       let targetRotationY = 0;
 
       vortexContainer.addEventListener('mousemove', (event) => {
         const rect = vortexContainer.getBoundingClientRect();
         const relativeX = (event.clientX - rect.left) / rect.width;
         const relativeY = (event.clientY - rect.top) / rect.height;
-        targetRotationY = (relativeX - 0.5) * Math.PI * 0.85;
-        targetRotationX = (relativeY - 0.5) * Math.PI * 0.85;
+        targetRotationY = (relativeX - 0.5) * Math.PI * 1.1;
+        targetRotationX = (relativeY - 0.5) * Math.PI * 1.1;
       });
 
       function animateVortex() {
         requestAnimationFrame(animateVortex);
-        particleSystem.rotation.y += 0.002 + (targetRotationY - particleSystem.rotation.y) * 0.04;
-        particleSystem.rotation.x += (targetRotationX - particleSystem.rotation.x) * 0.04;
+        particleSystem.rotation.y += 0.0035 + (targetRotationY - particleSystem.rotation.y) * 0.05;
+        particleSystem.rotation.x += (targetRotationX - particleSystem.rotation.x) * 0.05;
         renderer.render(scene, camera);
       }
       animateVortex();
