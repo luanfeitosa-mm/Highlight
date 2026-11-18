@@ -141,37 +141,75 @@
       background: linear-gradient(145deg, rgba(129, 42, 79, 0.22) 0%, rgba(18, 17, 24, 0.92) 100%);
     }
 
-    /* Section Transition Elements */
-    .section-transition {
+    /* ==========================================
+       MOTION SECTION TRANSITIONS (NO DEAD SPACE)
+       ========================================== */
+    .horizon-divider {
       position: relative;
+      width: 100%;
+      height: 2px;
+      overflow: visible;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .horizon-track {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(245, 243, 239, 0.06) 15%, rgba(168, 66, 109, 0.28) 50%, rgba(245, 243, 239, 0.06) 85%, transparent 100%);
+      overflow: hidden;
+    }
+
+    .horizon-runner {
+      position: absolute;
+      top: 0;
+      left: -35%;
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(168, 66, 109, 0.85) 50%, #F5F3EF 80%, transparent 100%);
+      animation: horizon-sweep 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .horizon-runner.reverse {
+      animation: horizon-sweep-rev 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .horizon-aura {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 520px;
+      height: 90px;
+      background: radial-gradient(ellipse at center, rgba(129, 42, 79, 0.22) 0%, rgba(129, 42, 79, 0) 70%);
       pointer-events: none;
     }
 
-    .section-transition-line {
-      width: 1px;
-      height: 64px;
-      background: linear-gradient(to bottom, transparent, rgba(168, 66, 109, 0.45), transparent);
+    @keyframes horizon-sweep {
+      0% { left: -35%; opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
     }
 
-    .section-transition-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 9999px;
-      background-color: #A8426D;
-      box-shadow: 0 0 14px 2px rgba(168, 66, 109, 0.75);
+    @keyframes horizon-sweep-rev {
+      0% { left: 100%; opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { left: -35%; opacity: 0; }
     }
 
-    .section-fade-beam {
+    .wave-transition-wrap {
+      position: relative;
       width: 100%;
-      max-width: 680px;
-      height: 1px;
-      margin: 0 auto;
-      background: linear-gradient(90deg, transparent 0%, rgba(245, 243, 239, 0.06) 20%, rgba(168, 66, 109, 0.38) 50%, rgba(245, 243, 239, 0.06) 80%, transparent 100%);
+      height: 68px;
+      margin: -22px 0;
+      pointer-events: none;
+      overflow: hidden;
     }
 
     /* Buttons */
@@ -391,17 +429,15 @@
       </div>
     </section>
 
-    <!-- Transition Connector -->
-    <div class="section-transition" aria-hidden="true">
-      <div class="section-transition-line"></div>
-      <div class="section-transition-dot"></div>
-      <div class="section-transition-line"></div>
+    <!-- Motion Transition: Flowing Particle Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full"></canvas>
     </div>
 
     <!-- ==========================================
          BLOCO 3: APRESENTAÇÃO
          ========================================== -->
-    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+    <section class="min-h-[86vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
@@ -454,35 +490,38 @@
             </div>
           </div>
 
-          <!-- Floating 3D Particle Pie Chart (No Gray Box) -->
+          <!-- Floating 3D Particle Pie Chart -->
           <div class="lg:col-span-6 relative">
             <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div id="pie-chart-container" class="w-full h-[380px] md:h-[440px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
+            <div id="pie-chart-container" class="w-full h-[420px] md:h-[480px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Soft Radial Beam Transition -->
-    <div class="py-4" aria-hidden="true">
-      <div class="section-fade-beam"></div>
+    <!-- Motion Transition: Animated Horizon Light Sweep -->
+    <div class="horizon-divider" aria-hidden="true">
+      <div class="horizon-aura"></div>
+      <div class="horizon-track">
+        <div class="horizon-runner"></div>
+      </div>
     </div>
 
     <!-- ==========================================
-         BLOCO 4: PARA QUEM É
+         BLOCO 4: PARA QUEM É (SEÇÃO DO RAIO AMPLIADA)
          ========================================== -->
-    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+    <section class="min-h-[90vh] flex items-center py-24 md:py-32 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
-          <!-- Floating 3D Particle Lightning (No Gray Box) -->
-          <div class="lg:col-span-5 order-2 lg:order-1 relative">
-            <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div id="lightning-pro-container" class="w-full h-[380px] md:h-[440px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
+          <!-- Floating 3D Particle Lightning (Expanded 6-cols & Taller Canvas) -->
+          <div class="lg:col-span-6 order-2 lg:order-1 relative">
+            <div class="absolute inset-0 bg-bordo/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div id="lightning-pro-container" class="w-full h-[460px] md:h-[540px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
           </div>
 
-          <div class="lg:col-span-7 space-y-5 order-1 lg:order-2">
+          <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
             <h3 class="font-display font-normal text-2xl sm:text-[28px] leading-snug text-creme">
               Para quem é a Highlight
             </h3>
@@ -492,29 +531,29 @@
             </p>
 
             <!-- 4 Glass Cards with Subtle Numbering -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-              <div class="glass-card p-4 rounded-xl space-y-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div class="glass-card p-5 rounded-xl space-y-2.5">
                 <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">01</span>
                 <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
                   Associações de servidores e de profissionais
                 </p>
               </div>
 
-              <div class="glass-card p-4 rounded-xl space-y-2">
+              <div class="glass-card p-5 rounded-xl space-y-2.5">
                 <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">02</span>
                 <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
                   Clubes de engenharia, clubes sociais e entidades de classe
                 </p>
               </div>
 
-              <div class="glass-card p-4 rounded-xl space-y-2">
+              <div class="glass-card p-5 rounded-xl space-y-2.5">
                 <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">03</span>
                 <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
                   Organizações com eventos, benefícios e convênios que pouca gente conhece
                 </p>
               </div>
 
-              <div class="glass-card p-4 rounded-xl space-y-2">
+              <div class="glass-card p-5 rounded-xl space-y-2.5">
                 <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-bordo/25 border border-bordo-soft/35 text-[11px] font-display text-bordo-soft">04</span>
                 <p class="text-xs sm:text-sm text-creme/85 font-light leading-relaxed">
                   Entidades de Brasília e de todo o Brasil, com atendimento 100% remoto
@@ -534,17 +573,15 @@
       </div>
     </section>
 
-    <!-- Transition Connector -->
-    <div class="section-transition" aria-hidden="true">
-      <div class="section-transition-line"></div>
-      <div class="section-transition-dot"></div>
-      <div class="section-transition-line"></div>
+    <!-- Motion Transition: Flowing Particle Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full"></canvas>
     </div>
 
     <!-- ==========================================
          BLOCO 5: DIAGNÓSTICO
          ========================================== -->
-    <section id="diagnostico" class="min-h-[85vh] flex items-center py-20 md:py-28 relative">
+    <section id="diagnostico" class="min-h-[88vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
@@ -614,27 +651,28 @@
             </div>
           </div>
 
-          <!-- Floating 3D Particle Vortex (No Gray Box) -->
+          <!-- Floating 3D Particle Vortex -->
           <div class="lg:col-span-6 relative">
             <div class="absolute inset-0 bg-bordo/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div id="diagnostic-3d-container" class="w-full h-[380px] md:h-[440px] flex justify-center items-center overflow-hidden relative cursor-grab active:cursor-grabbing"></div>
+            <div id="diagnostic-3d-container" class="w-full h-[420px] md:h-[480px] flex justify-center items-center overflow-hidden relative cursor-grab active:cursor-grabbing"></div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Transition Connector Linking into Process Timeline -->
-    <div class="section-transition" aria-hidden="true">
-      <div class="section-transition-line"></div>
-      <div class="section-transition-dot"></div>
-      <div class="section-transition-line"></div>
+    <!-- Motion Transition: Animated Horizon Light Sweep -->
+    <div class="horizon-divider" aria-hidden="true">
+      <div class="horizon-aura"></div>
+      <div class="horizon-track">
+        <div class="horizon-runner reverse"></div>
+      </div>
     </div>
 
     <!-- ==========================================
          BLOCO 6: PROCESSO (COMO TRABALHAMOS)
          ========================================== -->
-    <section id="processo" class="py-20 md:py-28 relative">
+    <section id="processo" class="py-24 md:py-32 relative">
       <div class="max-w-4xl mx-auto px-6">
         
         <div class="text-center mb-16 reveal-on-scroll">
@@ -745,15 +783,15 @@
       </div>
     </section>
 
-    <!-- Soft Radial Beam Transition -->
-    <div class="py-4" aria-hidden="true">
-      <div class="section-fade-beam"></div>
+    <!-- Motion Transition: Flowing Particle Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full"></canvas>
     </div>
 
     <!-- ==========================================
          BLOCO 7: TIME TERCEIRIZADO (SEM × COM)
          ========================================== -->
-    <section class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+    <section class="min-h-[86vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         
         <div class="text-center max-w-3xl mx-auto mb-14 space-y-3.5 reveal-on-scroll">
@@ -838,17 +876,18 @@
       </div>
     </section>
 
-    <!-- Transition Connector -->
-    <div class="section-transition" aria-hidden="true">
-      <div class="section-transition-line"></div>
-      <div class="section-transition-dot"></div>
-      <div class="section-transition-line"></div>
+    <!-- Motion Transition: Animated Horizon Light Sweep -->
+    <div class="horizon-divider" aria-hidden="true">
+      <div class="horizon-aura"></div>
+      <div class="horizon-track">
+        <div class="horizon-runner"></div>
+      </div>
     </div>
 
     <!-- ==========================================
          BLOCO 8: TYPEWRITER (ANIMADO — EXPANDIDO VERTICALMENTE)
          ========================================== -->
-    <section class="min-h-[68vh] flex items-center py-24 md:py-32 relative">
+    <section class="min-h-[75vh] flex items-center py-24 md:py-32 relative">
       <div class="max-w-4xl mx-auto px-6 w-full reveal-on-scroll">
         <div class="glass-card rounded-3xl py-20 sm:py-24 px-8 sm:px-14 text-center relative overflow-hidden bg-dot-matrix border border-bordo-soft/30 shadow-bordo-sm">
           <!-- Ambient Halo Inside Card -->
@@ -878,7 +917,7 @@
          BLOCO 9: RESULTADOS (OCULTO CONFORME ESPECIFICAÇÃO)
          ========================================== -->
     <!--
-    <section id="resultados" class="min-h-[78vh] flex items-center py-20 md:py-28 relative">
+    <section id="resultados" class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         
         <div class="text-center mb-14 reveal-on-scroll space-y-2">
@@ -927,15 +966,15 @@
     </section>
     -->
 
-    <!-- Soft Radial Beam Transition -->
-    <div class="py-4" aria-hidden="true">
-      <div class="section-fade-beam"></div>
+    <!-- Motion Transition: Flowing Particle Wave -->
+    <div class="wave-transition-wrap" aria-hidden="true">
+      <canvas class="wave-divider-canvas w-full h-full"></canvas>
     </div>
 
     <!-- ==========================================
          BLOCO 10: CHAMADA PARA A SESSÃO ESTRATÉGICA
          ========================================== -->
-    <section id="tour-guiada" class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
+    <section id="tour-guiada" class="min-h-[86vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-4xl mx-auto px-6 w-full reveal-on-scroll">
         <div class="glass-card rounded-2xl p-8 sm:p-12 border border-bordo-soft/40 bg-gradient-to-br from-bordo/[0.18] via-obsidian-card to-obsidian-surface relative overflow-hidden shadow-bordo-sm">
           <div class="absolute -right-24 -bottom-24 w-80 h-80 bg-bordo/25 rounded-full blur-3xl pointer-events-none"></div>
@@ -983,17 +1022,18 @@
       </div>
     </section>
 
-    <!-- Transition Connector -->
-    <div class="section-transition" aria-hidden="true">
-      <div class="section-transition-line"></div>
-      <div class="section-transition-dot"></div>
-      <div class="section-transition-line"></div>
+    <!-- Motion Transition: Animated Horizon Light Sweep -->
+    <div class="horizon-divider" aria-hidden="true">
+      <div class="horizon-aura"></div>
+      <div class="horizon-track">
+        <div class="horizon-runner reverse"></div>
+      </div>
     </div>
 
     <!-- ==========================================
          BLOCO 11: SOBRE O FUNDADOR
          ========================================== -->
-    <section id="founder" class="min-h-[80vh] flex items-center py-20 md:py-28 relative">
+    <section id="founder" class="min-h-[82vh] flex items-center py-20 md:py-28 relative">
       <div class="max-w-5xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
           
@@ -1067,7 +1107,7 @@
   </footer>
 
   <!-- ==========================================
-       SCRIPTS: UI, TIMELINE, TYPEWRITER & 3D
+       SCRIPTS: UI, TIMELINE, TYPEWRITER & MOTION DIVIDERS
        ========================================== -->
   <script>
     // Mobile Menu
@@ -1168,7 +1208,6 @@
 
     // Hero Background Constellation Canvas
     (function initHeroCanvas() {
-      const canvas = document.getById ? document.getElementById('hero-canvas') : null;
       const c = document.getElementById('hero-canvas');
       if (!c) return;
       const ctx = c.getContext('2d');
@@ -1223,6 +1262,84 @@
       }
       draw();
     })();
+
+    // Flowing Particle Wave Dividers (Motion Transitions Between Sections)
+    (function initWaveDividers() {
+      const canvases = document.querySelectorAll('.wave-divider-canvas');
+      if (!canvases.length) return;
+
+      let scrollVelocity = 0;
+      let lastScrollY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        const delta = Math.abs(window.scrollY - lastScrollY);
+        scrollVelocity = Math.min(3.5, delta * 0.12);
+        lastScrollY = window.scrollY;
+      }, { passive: true });
+
+      canvases.forEach((canvas, idx) => {
+        const ctx = canvas.getContext('2d');
+        let w, h;
+        function resize() {
+          w = canvas.width = canvas.offsetWidth;
+          h = canvas.height = canvas.offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const dots = Array.from({ length: 65 }, (_, i) => ({
+          x: (i / 65) * w,
+          speed: (0.45 + Math.random() * 0.55) * (idx % 2 === 0 ? 1 : -1),
+          amp: 8 + Math.random() * 12,
+          freq: 0.008 + Math.random() * 0.006,
+          phase: Math.random() * Math.PI * 2,
+          size: 0.9 + Math.random() * 1.4,
+          isBordo: Math.random() > 0.35
+        }));
+
+        let t = idx * 10;
+        function renderWave() {
+          ctx.clearRect(0, 0, w, h);
+          t += 0.025 + scrollVelocity * 0.02;
+          scrollVelocity *= 0.95;
+
+          const cy = h / 2;
+          ctx.beginPath();
+          for (let x = 0; x <= w; x += 12) {
+            const fade = Math.sin((x / w) * Math.PI);
+            const y = cy + Math.sin(x * 0.009 + t) * 9 * fade;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          const grad = ctx.createLinearGradient(0, 0, w, 0);
+          grad.addColorStop(0, 'rgba(129, 42, 79, 0)');
+          grad.addColorStop(0.5, 'rgba(168, 66, 109, 0.25)');
+          grad.addColorStop(1, 'rgba(129, 42, 79, 0)');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          for (let i = 0; i < dots.length; i++) {
+            const d = dots[i];
+            d.x += d.speed * (1 + scrollVelocity);
+            if (d.x > w) d.x = 0;
+            if (d.x < 0) d.x = w;
+
+            const edgeFade = Math.sin((d.x / w) * Math.PI);
+            const y = cy + Math.sin(d.x * d.freq + t + d.phase) * d.amp * edgeFade;
+
+            ctx.beginPath();
+            ctx.arc(d.x, y, d.size, 0, Math.PI * 2);
+            ctx.fillStyle = d.isBordo
+              ? `rgba(194, 82, 129, ${0.75 * edgeFade})`
+              : `rgba(245, 243, 239, ${0.55 * edgeFade})`;
+            ctx.fill();
+          }
+
+          requestAnimationFrame(renderWave);
+        }
+        renderWave();
+      });
+    })();
   </script>
 
   <!-- Three.js Visualizations (Interactive Mouse-Responsive Pie Chart, Lightning & Vortex) -->
@@ -1238,7 +1355,7 @@
     if (pieContainer) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(65, pieContainer.clientWidth / pieContainer.clientHeight, 0.1, 1000);
-      camera.position.z = 195;
+      camera.position.z = 190;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1250,7 +1367,7 @@
       scene.add(chartGroup);
 
       const data = [0.4, 0.25, 0.2, 0.15];
-      const radius = 84;
+      const radius = 86;
       let startAngle = 0;
       const sectorMeshes = [];
 
@@ -1344,12 +1461,12 @@
       });
     }
 
-    // 2. Lightning 3D
+    // 2. Lightning 3D (Larger Scale)
     const lightningContainer = document.getElementById('lightning-pro-container');
     if (lightningContainer) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(65, lightningContainer.clientWidth / lightningContainer.clientHeight, 0.1, 1000);
-      camera.position.z = 180;
+      camera.position.z = 152;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1361,16 +1478,16 @@
       scene.add(lightningGroup);
 
       const mainPoints = [
-        new THREE.Vector3(0, 98, 0),
-        new THREE.Vector3(-30, 56, 0),
-        new THREE.Vector3(20, 18, 0),
-        new THREE.Vector3(-38, -20, 0),
-        new THREE.Vector3(12, -58, 0),
-        new THREE.Vector3(-10, -98, 0)
+        new THREE.Vector3(6, 106, 0),
+        new THREE.Vector3(-34, 60, 4),
+        new THREE.Vector3(24, 20, -4),
+        new THREE.Vector3(-42, -22, 4),
+        new THREE.Vector3(16, -62, -4),
+        new THREE.Vector3(-12, -106, 0)
       ];
 
       const curve = new THREE.CatmullRomCurve3(mainPoints, false, 'catmullrom', 0.1);
-      const curvePoints = curve.getPoints(210);
+      const curvePoints = curve.getPoints(230);
       const positions = [];
       const colors = [];
 
@@ -1378,17 +1495,17 @@
         const progress = index / curvePoints.length;
         const baseColor = colorCreme.clone().lerp(colorVinho, progress);
 
-        for (let i = 0; i < 48; i++) {
+        for (let i = 0; i < 55; i++) {
           positions.push(
-            p.x + (Math.random() - 0.5) * 3.2,
-            p.y + (Math.random() - 0.5) * 3.2,
-            p.z + (Math.random() - 0.5) * 3.2
+            p.x + (Math.random() - 0.5) * 3.8,
+            p.y + (Math.random() - 0.5) * 3.8,
+            p.z + (Math.random() - 0.5) * 3.8
           );
           colors.push(colorCreme.r, colorCreme.g, colorCreme.b);
         }
 
-        for (let i = 0; i < 120; i++) {
-          const spread = 16 + Math.random() * 14;
+        for (let i = 0; i < 140; i++) {
+          const spread = 20 + Math.random() * 18;
           positions.push(
             p.x + (Math.random() - 0.5) * spread,
             p.y + (Math.random() - 0.5) * spread,
@@ -1397,12 +1514,12 @@
           colors.push(baseColor.r, baseColor.g, baseColor.b);
         }
 
-        if (index % 35 === 0 && index > 0) {
-          for (let i = 0; i < 320; i++) {
+        if (index % 32 === 0 && index > 0) {
+          for (let i = 0; i < 380; i++) {
             positions.push(
-              p.x + (Math.random() - 0.5) * 55,
-              p.y + (Math.random() - 0.5) * 22,
-              (Math.random() - 0.5) * 32
+              p.x + (Math.random() - 0.5) * 68,
+              p.y + (Math.random() - 0.5) * 26,
+              (Math.random() - 0.5) * 40
             );
             colors.push(colorVinho.r, colorVinho.g, colorVinho.b);
           }
@@ -1414,10 +1531,10 @@
       geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 1.25,
+        size: 1.35,
         vertexColors: true,
         transparent: true,
-        opacity: 0.85,
+        opacity: 0.88,
         blending: THREE.AdditiveBlending
       });
 
@@ -1430,8 +1547,8 @@
         const rect = lightningContainer.getBoundingClientRect();
         const relX = (event.clientX - rect.left) / rect.width;
         const relY = (event.clientY - rect.top) / rect.height;
-        lightTargetY = (relX - 0.5) * Math.PI * 0.95;
-        lightTargetX = (relY - 0.5) * Math.PI * 0.75;
+        lightTargetY = (relX - 0.5) * Math.PI * 1.05;
+        lightTargetX = (relY - 0.5) * Math.PI * 0.85;
       });
 
       lightningContainer.addEventListener('mouseleave', () => {
@@ -1442,9 +1559,9 @@
       function animateLightning() {
         requestAnimationFrame(animateLightning);
         const t = Date.now() * 0.001;
-        lightningGroup.rotation.y += (lightTargetY + Math.sin(t * 0.9) * 0.25 - lightningGroup.rotation.y) * 0.06;
-        lightningGroup.rotation.x += (lightTargetX + Math.cos(t * 0.6) * 0.12 - lightningGroup.rotation.x) * 0.06;
-        const scale = 1 + Math.sin(t * 2.5) * 0.025;
+        lightningGroup.rotation.y += (lightTargetY + Math.sin(t * 0.9) * 0.28 - lightningGroup.rotation.y) * 0.06;
+        lightningGroup.rotation.x += (lightTargetX + Math.cos(t * 0.6) * 0.14 - lightningGroup.rotation.x) * 0.06;
+        const scale = 1 + Math.sin(t * 2.5) * 0.03;
         lightningGroup.scale.set(scale, scale, scale);
         renderer.render(scene, camera);
       }
@@ -1463,7 +1580,7 @@
     if (vortexContainer) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(68, vortexContainer.clientWidth / vortexContainer.clientHeight, 0.1, 1000);
-      camera.position.set(0, 0, 275);
+      camera.position.set(0, 0, 270);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
